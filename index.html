@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rayen Askri · Embedded Systems & IoT Engineer</title>
+<meta name="description" content="Portfolio of Rayen Askri, Embedded Systems & IoT Engineer. ESP32, MQTT, RFID/NFC, React, Node.js.">
+<meta property="og:title" content="Rayen Askri · Embedded Systems & IoT Engineer">
+<meta property="og:description" content="I build connected products end to end: firmware, communication, backend, web and mobile.">
+<meta property="og:image" content="https://rayenaskri.github.io/photo.jpg">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Design system (ui-ux-pro-max: Portfolio/Personal)
+   Style: Minimalism & Swiss Style + subtle Motion-Driven reveals
+   Palette: Monochrome + blue accent · Type: JetBrains Mono (display/labels) + IBM Plex Sans (body) */
+:root{
+  --bg:#FAFAFA; --surface:#FFFFFF; --fg:#09090B; --muted:#475569; --soft:#E8ECF0;
+  --border:#E4E4E7; --accent:#2563EB; --accent-fg:#FFFFFF;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  --sans:"IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
+  --r:10px; --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#09090B;--surface:#111114;--fg:#FAFAFA;--muted:#A1A1AA;--soft:#1C1C21;--border:#27272A;--accent:#60A5FA;--accent-fg:#09090B;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#09090B;--surface:#111114;--fg:#FAFAFA;--muted:#A1A1AA;--soft:#1C1C21;--border:#27272A;--accent:#60A5FA;--accent-fg:#09090B;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{margin:0;line-height:1.15;text-wrap:balance}
+h2{font:600 clamp(1.6rem,3.2vw,2.2rem)/1.15 var(--sans);letter-spacing:-.02em}
+h3{font:600 1.1rem/1.3 var(--sans)}
+p{margin:0}
+.label{font:500 .75rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.accent{color:var(--accent)}
+svg.i{width:18px;height:18px;flex:0 0 auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--border)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font:600 .95rem var(--mono);text-decoration:none}
+.logo span{color:var(--accent)}
+.menu{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0}
+.menu a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;color:var(--muted);font-size:.92rem;border-radius:8px;transition:color .2s var(--ease),background .2s var(--ease)}
+.menu a:hover{color:var(--fg);background:var(--soft)}
+.icon-btn{display:inline-grid;place-items:center;width:44px;height:44px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--fg);cursor:pointer;transition:border-color .2s var(--ease)}
+.icon-btn:hover{border-color:var(--accent)}
+@media (max-width:760px){.menu li.l{display:none}}
+
+/* hero */
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;padding:6px 12px;border:1px solid var(--border);border-radius:999px;background:var(--surface);font:500 .78rem var(--mono)}
+.dot{width:8px;height:8px;border-radius:50%;background:#16A34A;position:relative}
+.dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid #16A34A;opacity:0;animation:ping 2.2s var(--ease) infinite}
+@keyframes ping{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+.hero h1{margin-top:22px;font:700 clamp(2.6rem,7vw,4.6rem)/1.02 var(--sans);letter-spacing:-.035em}
+.hero .role{margin-top:14px;font:500 clamp(1rem,2.2vw,1.25rem)/1.4 var(--mono);color:var(--accent)}
+.hero .lede{margin-top:20px;max-width:56ch;color:var(--muted);font-size:1.06rem}
+.cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border-radius:10px;font:500 .95rem var(--sans);text-decoration:none;border:1px solid var(--border);background:var(--surface);color:var(--fg);cursor:pointer;transition:transform .2s var(--ease),border-color .2s var(--ease),background .2s var(--ease)}
+.btn:hover{border-color:var(--fg);transform:translateY(-1px)}
+.btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.portrait{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;border:1px solid var(--border);background:var(--soft)}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait figcaption{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:8px;background:var(--surface);border:1px solid var(--border);font:500 .72rem var(--mono)}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding-top:48px}.portrait{max-width:360px}}
+
+/* facts strip */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:var(--r);background:var(--surface)}
+.facts div{padding:20px 22px;border-right:1px solid var(--border)}
+.facts div:last-child{border-right:0}
+.facts strong{display:block;margin-top:4px;font:600 1.3rem var(--sans);font-variant-numeric:tabular-nums}
+@media (max-width:760px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(2){border-right:0}.facts div:nth-child(-n+2){border-bottom:1px solid var(--border)}}
+
+section{padding:88px 0 0}
+.head{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.head .label{color:var(--accent)}
+
+/* featured */
+.feature{border:1px solid var(--border);border-radius:16px;background:var(--surface);overflow:hidden}
+.feature-body{padding:36px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px}
+.feature-body p{color:var(--muted);margin-top:12px}
+.list{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.list li{display:grid;grid-template-columns:20px 1fr;gap:10px;color:var(--muted)}
+.list li svg{margin-top:3px;color:var(--accent)}
+.list b{color:var(--fg);font-weight:600}
+.flow{border-top:1px solid var(--border);background:var(--soft);padding:28px 36px;overflow-x:auto}
+.flow-row{display:flex;align-items:center;min-width:760px}
+.node{flex:0 0 auto;width:158px;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface)}
+.node.k{border-color:var(--accent)}
+.node b{display:block;font:600 .95rem var(--sans);margin-top:2px}
+.link{flex:1;min-width:48px;height:2px;margin:0 6px;position:relative;background:var(--border);overflow:hidden}
+.link::after{content:"";position:absolute;top:0;left:-30%;width:30%;height:100%;background:var(--accent);animation:pkt 2.2s linear infinite}
+.link-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:60px}
+.link-wrap .link{width:100%;flex:none;margin:0}
+.link-wrap span{font:500 .68rem var(--mono);color:var(--accent)}
+@keyframes pkt{to{left:100%}}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:20px 36px;border-top:1px solid var(--border)}
+.tag{font:500 .74rem var(--mono);padding:4px 9px;border-radius:6px;border:1px solid var(--border);color:var(--muted);background:var(--bg)}
+@media (max-width:860px){.feature-body{grid-template-columns:1fr;padding:24px;gap:24px}.flow{padding:22px 24px}.tags{padding:18px 24px}}
+
+/* experience */
+.xp{border-top:1px solid var(--border)}
+.xp-item{display:grid;grid-template-columns:190px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--border);transition:background .2s var(--ease)}
+.xp-item .when{font:500 .8rem/1.8 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.xp-item .org{color:var(--accent);font-weight:500}
+.xp-item p{color:var(--muted);margin-top:6px;max-width:66ch}
+@media (max-width:640px){.xp-item{grid-template-columns:1fr;gap:4px}}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:12px;padding:24px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);transition:transform .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 10px 30px -18px color-mix(in srgb,var(--accent) 60%,transparent)}
+.card .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--soft);color:var(--accent)}
+.card p{color:var(--muted);font-size:.95rem}
+.card .tags{padding:0;border:0;margin-top:auto}
+
+/* skills */
+.skills{border:1px solid var(--border);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.skill-row{display:grid;grid-template-columns:220px 1fr;gap:16px;padding:16px 22px;border-bottom:1px solid var(--border);align-items:center}
+.skill-row:last-child{border-bottom:0}
+.skill-row .tags{padding:0;border:0}
+@media (max-width:640px){.skill-row{grid-template-columns:1fr;gap:8px}}
+
+/* education */
+.two{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
+.box{padding:26px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);display:grid;gap:18px;align-content:start}
+.edu p{color:var(--muted);font-size:.95rem;margin-top:2px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.row:last-child{border-bottom:0}
+.row span:last-child{font:500 .8rem var(--mono);color:var(--muted)}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+
+/* contact */
+.contact{margin-top:88px;padding:44px;border-radius:18px;background:var(--fg);color:var(--bg);display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.contact h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+.contact p{margin-top:12px;opacity:.72;max-width:46ch}
+.clinks{display:grid;gap:10px}
+.clinks a,.clinks button{display:flex;align-items:center;gap:12px;min-height:52px;padding:0 16px;border-radius:10px;border:1px solid color-mix(in srgb,var(--bg) 22%,transparent);background:transparent;color:inherit;font:500 .95rem var(--sans);text-decoration:none;cursor:pointer;text-align:left;width:100%;transition:border-color .2s var(--ease),background .2s var(--ease)}
+.clinks a:hover,.clinks button:hover{border-color:var(--accent);background:color-mix(in srgb,var(--bg) 6%,transparent)}
+.clinks small{margin-left:auto;font:400 .74rem var(--mono);opacity:.7;overflow-wrap:anywhere;text-align:right}
+@media (max-width:860px){.contact{grid-template-columns:1fr;padding:28px 22px}}
+footer{padding:32px 0 44px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* motion: content is visible by default; JS adds a subtle reveal */
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2Zm1.8 13.1H3.6V9h3.5v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm18 2-10 7L2 6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></g></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 14l4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></g></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></g></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Rayen Askri, back to top">rayen<span>.</span>askri</a>
+    <ul class="menu">
+      <li class="l"><a href="#work">Work</a></li>
+      <li class="l"><a href="#experience">Experience</a></li>
+      <li class="l"><a href="#projects">Projects</a></li>
+      <li class="l"><a href="#skills">Skills</a></li>
+      <li class="l"><a href="#contact">Contact</a></li>
+      <li><button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode"><svg class="i"><use href="#i-sun"/></svg></button></li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div>
+      <span class="status"><span class="dot" aria-hidden="true"></span>Open to opportunities</span>
+      <h1>Rayen Askri</h1>
+      <p class="role">Embedded Systems &amp; IoT Engineer</p>
+      <p class="lede">I build connected products end to end: firmware on the device, the communication between devices, and the backend, web dashboards and mobile apps people use to run them. Electronics engineering graduate from ISIMM, Monastir.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Get in touch <svg class="i"><use href="#i-arrow"/></svg></a>
+        <a class="btn" href="https://github.com/rayenaskri"><svg class="i"><use href="#i-github"/></svg>GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/rayen-askri-8048b4240/"><svg class="i"><use href="#i-linkedin"/></svg>LinkedIn</a>
+      </div>
+    </div>
+    <figure class="portrait" style="margin:0">
+      <picture>
+        <source srcset="photo.webp" type="image/webp">
+        <img src="photo.jpg" width="640" height="800" alt="Rayen Askri at his ISIMM engineering graduation" fetchpriority="high">
+      </picture>
+      <figcaption>Ing. · ISIMM 2026</figcaption>
+    </figure>
+  </div>
+
+  <div class="facts reveal">
+    <div><span class="label">Based in</span><strong>Tabarka, TN</strong></div>
+    <div><span class="label">Degree</span><strong>Eng. Electronics</strong></div>
+    <div><span class="label">Internships</span><strong>6</strong></div>
+    <div><span class="label">Languages</span><strong>AR · FR · EN</strong></div>
+  </div>
+
+  <section id="work">
+    <div class="head reveal"><span class="label">01 · Featured project</span><h2>RondeGuard</h2></div>
+    <article class="feature reveal">
+      <div class="feature-body">
+        <div>
+          <span class="label">MakerSkills · Final-year project · Feb – Aug 2026</span>
+          <h3 style="margin-top:10px;font-size:1.35rem">A security-patrol platform, from the device on the guard's belt to the supervisor's screen</h3>
+          <p>Designed and built autonomously, from design to deployment: embedded IoT device, backend, supervisor web dashboard and agent mobile app.</p>
+        </div>
+        <ul class="list">
+          <li><svg class="i"><use href="#i-check"/></svg><span><b>IoT device:</b> ESP32 over MQTT, RFID/NFC checkpoint verification</span></li>
+          <li><svg class="i"><use href="#i-check"/></svg><span><b>Safety:</b> automatic incident detection (SOS, Man Down)</span></li>
+          <li><svg class="i"><use href="#i-check"/></svg><span><b>Live tracking:</b> real-time geolocation with Socket.IO and Leaflet maps</span></li>
+          <li><svg class="i"><use href="#i-check"/></svg><span><b>Apps:</b> React Native (Expo) agent app, React / TypeScript dashboard</span></li>
+          <li><svg class="i"><use href="#i-check"/></svg><span><b>Ops:</b> Node.js / Express, MongoDB, Docker, Nginx</span></li>
+        </ul>
+      </div>
+      <div class="flow" role="img" aria-label="Data flow: ESP32 device sends MQTT messages to a Node.js backend that stores data in MongoDB and pushes live updates over WebSocket to the web dashboard and mobile app">
+        <div class="flow-row">
+          <div class="node k"><span class="label">Device</span><b>ESP32 + RFID/NFC</b></div>
+          <div class="link-wrap"><span>MQTT</span><div class="link"></div></div>
+          <div class="node"><span class="label">Backend</span><b>Node.js / Express</b></div>
+          <div class="link-wrap"><span>&nbsp;</span><div class="link"></div></div>
+          <div class="node"><span class="label">Database</span><b>MongoDB</b></div>
+          <div class="link-wrap"><span>WebSocket</span><div class="link"></div></div>
+          <div class="node k"><span class="label">Clients</span><b>Web · Mobile</b></div>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">RFID/NFC</span><span class="tag">React Native</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Socket.IO</span><span class="tag">MongoDB</span><span class="tag">Docker</span><span class="tag">Nginx</span>
+      </div>
+    </article>
+  </section>
+
+  <section id="experience">
+    <div class="head reveal"><span class="label">02 · Career</span><h2>Experience</h2></div>
+    <div class="xp">
+      <div class="xp-item reveal"><span class="when">Feb 2026 – Aug 2026</span><div><h3>Full-Stack &amp; IoT Developer <span class="org">· MakerSkills</span></h3><p>Final-year engineering internship. Built RondeGuard end to end, from design to deployment.</p></div></div>
+      <div class="xp-item reveal"><span class="when">Jun 2025 – Sep 2025</span><div><h3>Technician Intern <span class="org">· SNCFT, IT Department</span></h3><p>Delivered a complete GPS-based train geolocation system using embedded and IoT technologies.</p></div></div>
+      <div class="xp-item reveal"><span class="when">Jul 2024</span><div><h3>Technician Intern <span class="org">· SNCFT, Electronics Lab</span></h3><p>Diagnosed, maintained and repaired electronic boards.</p></div></div>
+      <div class="xp-item reveal"><span class="when">Feb 2023 – May 2023</span><div><h3>Bachelor's Final Project <span class="org">· SOTRADIES</span></h3><p>Restored the machine control system of a 4-post vehicle lift.</p></div></div>
+      <div class="xp-item reveal"><span class="when">Jun 2022 – Jul 2022</span><div><h3>Technician Intern <span class="org">· SAFRAN</span></h3><p>Set up an infrared barrier system and supervised maintenance activities.</p></div></div>
+      <div class="xp-item reveal"><span class="when">Jul 2021 – Aug 2021</span><div><h3>Observation Intern <span class="org">· Tunisie Télécom</span></h3><p>Took part in supervising xDSL and ADSL lines.</p></div></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="head reveal"><span class="label">03 · Academic</span><h2>Projects</h2></div>
+    <div class="grid">
+      <article class="card reveal"><div class="ic"><svg class="i"><use href="#i-gauge"/></svg></div><h3>DC Motor PID Controller</h3><p>Closed-loop speed regulation of a DC motor with encoder feedback and a supervision dashboard.</p><div class="tags"><span class="tag">PID</span><span class="tag">Encoder</span></div></article>
+      <article class="card reveal"><div class="ic"><svg class="i"><use href="#i-eye"/></svg></div><h3>Vision Line-Follower Robot</h3><p>Camera-based path tracking driven by a Raspberry Pi.</p><div class="tags"><span class="tag">Raspberry Pi</span><span class="tag">Python</span></div></article>
+      <article class="card reveal"><div class="ic"><svg class="i"><use href="#i-trophy"/></svg></div><h3>All-Terrain Robot</h3><p>Team build for the ENIT and ENIM robotics competitions.</p><div class="tags"><span class="tag">Robotics</span><span class="tag">Competition</span></div></article>
+      <article class="card reveal"><div class="ic"><svg class="i"><use href="#i-chip"/></svg></div><h3>Line-Follower Robot</h3><p>Sensor-based line follower for the ISET Nabeul robotics competition.</p><div class="tags"><span class="tag">Sensors</span><span class="tag">C</span></div></article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="head reveal"><span class="label">04 · Toolbox</span><h2>Skills</h2></div>
+    <div class="skills reveal">
+      <div class="skill-row"><span class="label">Languages</span><div class="tags"><span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">JavaScript/TypeScript</span><span class="tag">VHDL</span></div></div>
+      <div class="skill-row"><span class="label">Hardware</span><div class="tags"><span class="tag">ESP32</span><span class="tag">Raspberry Pi</span><span class="tag">FPGA</span></div></div>
+      <div class="skill-row"><span class="label">Protocols</span><div class="tags"><span class="tag">MQTT</span><span class="tag">RFID/NFC</span><span class="tag">WebSocket</span></div></div>
+      <div class="skill-row"><span class="label">Web &amp; Mobile</span><div class="tags"><span class="tag">React</span><span class="tag">React Native</span><span class="tag">Node.js</span></div></div>
+      <div class="skill-row"><span class="label">Database &amp; DevOps</span><div class="tags"><span class="tag">MongoDB</span><span class="tag">Docker</span><span class="tag">Nginx</span></div></div>
+      <div class="skill-row"><span class="label">Tools</span><div class="tags"><span class="tag">Altium Designer</span><span class="tag">SolidWorks</span><span class="tag">Vivado</span><span class="tag">Quartus</span></div></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="head reveal"><span class="label">05 · Background</span><h2>Education</h2></div>
+    <div class="two">
+      <div class="box reveal">
+        <div class="edu"><span class="label">2023 – 2026</span><h3>ISIMM, Monastir</h3><p>Engineering degree in Electronics, Embedded Systems track</p></div>
+        <div class="edu"><span class="label">2020 – 2023</span><h3>ISTIC, Borj Cédria</h3><p>Bachelor's degree in Industrial Computing</p></div>
+      </div>
+      <div class="box reveal">
+        <span class="label">Languages</span>
+        <div><div class="row"><span>Arabic</span><span>Native</span></div><div class="row"><span>French</span><span>Fluent</span></div><div class="row"><span>English</span><span>Fluent</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding:0">
+    <div class="contact reveal">
+      <div>
+        <span class="label" style="color:var(--accent)">06 · Contact</span>
+        <h2 style="margin-top:10px">Let's build something connected.</h2>
+        <p>Looking for a role as an Embedded Systems, IoT or Full-Stack engineer. Email or LinkedIn is the fastest way to reach me.</p>
+      </div>
+      <div class="clinks">
+        <a href="mailto:rayenaskri2020@gmail.com"><svg class="i"><use href="#i-mail"/></svg>Email<small>rayenaskri2020@gmail.com</small></a>
+        <a href="https://www.linkedin.com/in/rayen-askri-8048b4240/"><svg class="i"><use href="#i-linkedin"/></svg>LinkedIn<small>rayen-askri-8048b4240</small></a>
+        <a href="https://github.com/rayenaskri"><svg class="i"><use href="#i-github"/></svg>GitHub<small>rayenaskri</small></a>
+      </div>
+    </div>
+  </section>
+
+  <footer><span class="label">© 2026 Rayen Askri</span><span class="label">Tabarka, Tunisia</span></footer>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  document.getElementById('theme').addEventListener('click',function(){
+    var dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme=dark?'light':'dark';
+    try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+  });
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
