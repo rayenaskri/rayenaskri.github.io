@@ -893,7 +893,7 @@ footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:w
 
   /* ---------- init language + theme ---------- */
   var saved=read('lang');
-  setLang(saved||((navigator.language||'').toLowerCase().indexOf('fr')===0?'fr':'en'),false);
+  setLang(saved||'en',false);
 
   /* ---------- scroll: progress bar + header border ---------- */
   var bar=$('progress'),ticking=false;
