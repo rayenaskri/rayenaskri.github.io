@@ -4,177 +4,374 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rayen Askri · Embedded Systems & IoT Engineer</title>
-<meta name="description" content="Portfolio of Rayen Askri, Embedded Systems & IoT Engineer. ESP32, MQTT, RFID/NFC, React, Node.js.">
+<meta name="description" content="Portfolio of Rayen Askri, Embedded Systems & IoT Engineer: ESP32 firmware, FreeRTOS, 4G/MQTT, NFC, and the React / Node.js apps around them.">
+<link rel="canonical" href="https://rayenaskri.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://rayenaskri.github.io/">
 <meta property="og:title" content="Rayen Askri · Embedded Systems & IoT Engineer">
 <meta property="og:description" content="I build connected products end to end: firmware, communication, backend, web and mobile.">
-<meta property="og:image" content="https://rayenaskri.github.io/photo.jpg">
+<meta property="og:image" content="https://rayenaskri.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rayen Askri, Embedded Systems & IoT Engineer">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0F172A">
 <link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Rayen Askri","jobTitle":"Embedded Systems & IoT Engineer","url":"https://rayenaskri.github.io/","image":"https://rayenaskri.github.io/photo.jpg","email":"mailto:rayenaskri2020@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Tabarka","addressCountry":"TN"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"ISIMM, Monastir"},{"@type":"CollegeOrUniversity","name":"ISTIC, Borj Cédria"}],"knowsAbout":["Embedded systems","IoT","ESP32","FreeRTOS","MQTT","NFC","React","React Native","Node.js"],"sameAs":["https://github.com/rayenaskri","https://www.linkedin.com/in/rayen-askri-8048b4240/"]}
+</script>
 <style>
-/* Design system generated with ui-ux-pro-max (query: "professional technical developer portfolio")
-   Style: Dark Mode (OLED), dark-first · Palette: "Code dark + run green"
-   Type: JetBrains Mono (headings/labels) + IBM Plex Sans (body) · Motion: Stagger List (standard, 300-450ms, back-out)
-   Pattern: scroll storytelling with progress indicator; final readable state under reduced motion */
+/* Design system: ui-ux-pro-max (query: "embedded engineer developer portfolio", variance 7 / motion 6 / density 4)
+   Style: Dark Mode (OLED), dark-first + Bento grid for the case study · Palette: "Code dark + run green"
+   Type: JetBrains Mono (labels, data) + IBM Plex Sans (headings, body) · Motion: Stagger List, 300-450ms, back-out
+   Pattern: hero > featured case study > timeline > grid > contact; final readable state under reduced motion */
 :root{
-  --bg:#0F172A; --surface:#1B2336; --fg:#F8FAFC; --muted:#94A3B8; --soft:#272F42;
-  --border:#334155; --accent:#22C55E; --accent-fg:#0F172A; --glow:0 0 18px rgba(34,197,94,.35);
-  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  --bg:#0F172A; --bg-2:#0C1424; --surface:#1B2336; --fg:#F8FAFC; --muted:#94A3B8; --soft:#272F42;
+  --border:#334155; --border-soft:#253048;
+  --accent:#22C55E; --accent-fg:#0F172A; --accent-soft:rgba(34,197,94,.12); --accent-line:rgba(34,197,94,.45);
+  --glow:0 0 18px rgba(34,197,94,.35); --dots:rgba(148,163,184,.17); --shadow:0 28px 60px -32px rgba(0,0,0,.75);
+  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   --sans:"IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
-  --r:10px; --ease:cubic-bezier(.2,.7,.2,1); --back:cubic-bezier(.34,1.4,.64,1);
+  --r:12px; --r-lg:20px; --ease:cubic-bezier(.2,.7,.2,1); --back:cubic-bezier(.34,1.4,.64,1);
   color-scheme:dark;
 }
-/* Optional light theme (toggle), kept accessible: accent darkened to pass 4.5:1 on white */
-:root[data-theme="light"]{--bg:#F8FAFC;--surface:#FFFFFF;--fg:#0F172A;--muted:#475569;--soft:#EEF2F6;--border:#E2E8F0;--accent:#15803D;--accent-fg:#FFFFFF;--glow:none;color-scheme:light}
+/* Light theme (toggle): accent darkened to keep 4.5:1 on white */
+:root[data-theme="light"]{--bg:#F8FAFC;--bg-2:#F1F5F9;--surface:#FFFFFF;--fg:#0F172A;--muted:#475569;--soft:#EEF2F6;--border:#E2E8F0;--border-soft:#EDF1F6;--accent:#15803D;--accent-fg:#FFFFFF;--accent-soft:rgba(21,128,61,.10);--accent-line:rgba(21,128,61,.4);--glow:none;--dots:rgba(15,23,42,.12);--shadow:0 28px 60px -36px rgba(15,23,42,.35);color-scheme:light}
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;transition:background-color .3s var(--ease),color .3s var(--ease)}
 img{max-width:100%;display:block}
 a{color:inherit}
+a,button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 h1,h2,h3{margin:0;line-height:1.15;text-wrap:balance}
-h2{font:600 clamp(1.6rem,3.2vw,2.2rem)/1.15 var(--sans);letter-spacing:-.02em}
+h2{font:600 clamp(1.7rem,3.4vw,2.4rem)/1.12 var(--sans);letter-spacing:-.025em}
 h3{font:600 1.1rem/1.3 var(--sans)}
-p{margin:0}
+p{margin:0;text-wrap:pretty}
 .label{font:500 .75rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .accent{color:var(--accent)}
 svg.i{width:18px;height:18px;flex:0 0 auto}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.skip{position:absolute;left:16px;top:-60px;z-index:20;padding:10px 14px;border-radius:8px;background:var(--accent);color:var(--accent-fg);font-weight:600;text-decoration:none;transition:top .2s var(--ease)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:16px;top:-60px;z-index:50;padding:10px 14px;border-radius:8px;background:var(--accent);color:var(--accent-fg);font-weight:600;text-decoration:none;transition:top .2s var(--ease)}
 .skip:focus{top:12px}
-.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:15;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);box-shadow:var(--glow)}
-a,button{cursor:pointer}
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:40;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);box-shadow:var(--glow)}
 
-/* nav */
-header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--border)}
-header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-.logo{font:600 .95rem var(--mono);text-decoration:none}
+/* ---------- nav ---------- */
+header.nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .25s var(--ease)}
+header.nav.scrolled,header.nav.open{border-bottom-color:var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{display:inline-flex;align-items:center;min-height:44px;font:600 .95rem var(--mono);text-decoration:none}
 .logo span{color:var(--accent)}
-.menu{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0}
-.menu a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;color:var(--muted);font-size:.92rem;border-radius:8px;transition:color .2s var(--ease),background .2s var(--ease)}
+.menu{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0}
+.menu a{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;color:var(--muted);font-size:.92rem;border-radius:8px;transition:color .2s var(--ease),background .2s var(--ease)}
+.menu a::after{content:"";position:absolute;left:12px;right:12px;bottom:7px;height:2px;border-radius:2px;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;transition:transform .3s var(--ease)}
 .menu a:hover{color:var(--fg);background:var(--soft)}
-.icon-btn{display:inline-grid;place-items:center;width:44px;height:44px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--fg);cursor:pointer;transition:border-color .2s var(--ease)}
+.menu a[aria-current]{color:var(--fg)}
+.menu a[aria-current]::after{transform:scaleX(1)}
+.tools{display:flex;align-items:center;gap:8px}
+.seg{display:inline-flex;padding:3px;gap:2px;border:1px solid var(--border);border-radius:10px;background:var(--surface)}
+.seg button{min-width:40px;height:36px;padding:0 8px;border:0;border-radius:7px;background:transparent;color:var(--muted);font:600 .74rem var(--mono);letter-spacing:.05em;transition:background .2s var(--ease),color .2s var(--ease)}
+.seg button:hover{color:var(--fg)}
+.seg button[aria-pressed="true"]{background:var(--soft);color:var(--fg)}
+.icon-btn{display:inline-grid;place-items:center;width:44px;height:44px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--fg);transition:border-color .2s var(--ease),transform .2s var(--ease)}
 .icon-btn:hover{border-color:var(--accent)}
-@media (max-width:760px){.menu li.l{display:none}}
+.icon-btn:active{transform:scale(.96)}
+.menu-btn{display:none}
+.mnav{border-top:1px solid var(--border);background:var(--bg)}
+.mnav ul{list-style:none;margin:0;padding:6px 20px 18px}
+.mnav a{display:flex;align-items:center;justify-content:space-between;min-height:54px;text-decoration:none;font:500 1.05rem var(--sans);border-bottom:1px solid var(--border-soft)}
+.mnav a[aria-current]{color:var(--accent)}
+.mnav li:last-child a{border-bottom:0}
+@media (max-width:900px){.menu{display:none}.menu-btn{display:inline-grid}}
+@media (min-width:901px){.mnav{display:none!important}}
 
-/* hero */
-.hero{padding:72px 0 56px;display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:center}
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-64px 0 0;z-index:-1;background-image:radial-gradient(var(--dots) 1px,transparent 1.3px);background-size:22px 22px;-webkit-mask-image:radial-gradient(75% 65% at 72% 38%,#000 15%,transparent 72%);mask-image:radial-gradient(75% 65% at 72% 38%,#000 15%,transparent 72%)}
+.hero::after{content:"";position:absolute;z-index:-1;right:8%;top:6%;width:min(520px,80vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,var(--accent-soft),transparent);pointer-events:none}
+.hero-in{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center;padding-top:76px;padding-bottom:92px}
 .status{display:inline-flex;align-items:center;gap:10px;padding:6px 12px;border:1px solid var(--border);border-radius:999px;background:var(--surface);font:500 .78rem var(--mono)}
-.dot{width:8px;height:8px;border-radius:50%;background:#16A34A;position:relative}
+.dot{width:8px;height:8px;border-radius:50%;background:#16A34A;position:relative;flex:0 0 auto}
 .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid #16A34A;opacity:0;animation:ping 2.2s var(--ease) infinite}
 @keyframes ping{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.6);opacity:0}}
-.hero h1{margin-top:22px;font:700 clamp(2.6rem,7vw,4.6rem)/1.02 var(--sans);letter-spacing:-.035em}
+.hero h1{margin-top:22px;font:700 clamp(2.7rem,7.2vw,4.8rem)/1.02 var(--sans);letter-spacing:-.04em}
 .hero .role{margin-top:14px;font:500 clamp(1rem,2.2vw,1.25rem)/1.4 var(--mono);color:var(--accent);text-shadow:var(--glow)}
 .hero .role::before{content:"> ";opacity:.6}
 .hero .role::after{content:"_";margin-left:2px;animation:blink 1.1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.hero .lede{margin-top:20px;max-width:56ch;color:var(--muted);font-size:1.06rem}
+.hero .lede{margin-top:20px;max-width:56ch;color:var(--muted);font-size:1.07rem}
 .cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
-.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border-radius:10px;font:500 .95rem var(--sans);text-decoration:none;border:1px solid var(--border);background:var(--surface);color:var(--fg);cursor:pointer;transition:transform .2s var(--ease),border-color .2s var(--ease),background .2s var(--ease)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 18px;border-radius:10px;font:500 .95rem var(--sans);text-decoration:none;border:1px solid var(--border);background:var(--surface);color:var(--fg);transition:transform .2s var(--ease),border-color .2s var(--ease),background .2s var(--ease),color .2s var(--ease)}
 .btn:hover{border-color:var(--fg);transform:translateY(-1px)}
+.btn:active{transform:translateY(0) scale(.98)}
 .btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .btn.primary:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
-.portrait{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;border:1px solid var(--border);background:var(--soft)}
+.btn.primary svg{transition:transform .2s var(--ease)}
+.btn.primary:hover svg{transform:translateX(3px)}
+.btn.sq{width:46px;padding:0}
+.js .hero-copy>*{animation:rise .7s var(--ease) both;animation-delay:calc(var(--i,0) * 80ms)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+
+.visual{position:relative;justify-self:end;width:min(100%,400px)}
+.portrait{position:relative;margin:0;aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);background:var(--soft);box-shadow:var(--shadow)}
 .portrait img{width:100%;height:100%;object-fit:cover}
-.portrait figcaption{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:8px;background:var(--surface);border:1px solid var(--border);font:500 .72rem var(--mono)}
-@media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding-top:48px}.portrait{max-width:360px}}
+.portrait figcaption{position:absolute;right:12px;top:12px;padding:6px 10px;border-radius:8px;background:var(--surface);border:1px solid var(--border);font:500 .72rem var(--mono)}
+.corner{position:absolute;width:22px;height:22px;border:2px solid var(--accent);pointer-events:none}
+.corner.c1{top:-11px;left:-11px;border-right:0;border-bottom:0;border-top-left-radius:9px}
+.corner.c2{top:-11px;right:-11px;border-left:0;border-bottom:0;border-top-right-radius:9px}
+.corner.c3{bottom:-11px;right:-11px;border-left:0;border-top:0;border-bottom-right-radius:9px}
+/* serial monitor card: always dark, like a real terminal */
+.term{position:absolute;left:-64px;bottom:-40px;width:304px;border-radius:12px;border:1px solid #1E293B;background:#0A0F1C;color:#9FB0C8;box-shadow:0 30px 60px -24px rgba(0,0,0,.65);font:500 .72rem/1.7 var(--mono);overflow:hidden}
+.term-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid #1E293B;color:#64748B;font-size:.68rem}
+.term-bar i{width:8px;height:8px;border-radius:50%;background:#253048}
+.term-bar i:first-child{background:#22C55E}
+.term-bar span{margin-left:auto}
+.term pre{margin:0;padding:10px 14px 12px;font:inherit;white-space:pre;overflow:hidden}
+.term b{color:#22C55E;font-weight:500}
+.term .dim{color:#64748B}
+.term .hi{color:#E2E8F0}
+.term .cur{display:inline-block;animation:blink 1.1s steps(1) infinite;color:#22C55E}
+.js .term .ln{opacity:0;transition:opacity .25s var(--ease)}
+.js .term .ln.on{opacity:1}
+@media (max-width:1060px){.term{left:-24px}}
+@media (max-width:860px){
+  .hero-in{grid-template-columns:1fr;gap:44px;padding-top:44px;padding-bottom:64px}
+  .visual{justify-self:start;width:min(100%,380px)}
+  .term{position:relative;left:auto;bottom:auto;margin:-64px -8px 0 auto;width:min(304px,92%)}
+  .corner.c3{display:none}
+}
 
-/* facts strip */
+/* ---------- facts ---------- */
 .facts{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:var(--r);background:var(--surface)}
-.facts div{padding:20px 22px;border-right:1px solid var(--border)}
-.facts div:last-child{border-right:0}
-.facts strong{display:block;margin-top:4px;font:600 1.3rem var(--sans);font-variant-numeric:tabular-nums}
-@media (max-width:760px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(2){border-right:0}.facts div:nth-child(-n+2){border-bottom:1px solid var(--border)}}
+.facts>div{padding:20px 22px;border-right:1px solid var(--border);min-width:0}
+.facts>div:last-child{border-right:0}
+.facts strong{display:block;margin-top:4px;font:600 1.3rem/1.3 var(--sans);font-variant-numeric:tabular-nums}
+.facts small{display:block;margin-top:2px;font:500 .74rem var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+@media (max-width:760px){.facts{grid-template-columns:1fr 1fr}.facts>div:nth-child(2){border-right:0}.facts>div:nth-child(-n+2){border-bottom:1px solid var(--border)}.facts>div{padding:16px 18px}.facts strong{font-size:1.12rem}}
 
-section{padding:88px 0 0}
-.head{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+/* ---------- sections ---------- */
+section{padding:112px 0 0}
+.head{display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
 .head .label{color:var(--accent)}
+.head p{color:var(--muted);max-width:62ch;margin-top:4px}
+.sub{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:56px 0 20px}
+.sub h3{font-size:1.35rem;letter-spacing:-.01em}
+.sub p{color:var(--muted);max-width:60ch}
+@media (max-width:640px){section{padding-top:88px}}
 
-/* featured */
-.feature{border:1px solid var(--border);border-radius:16px;background:var(--surface);overflow:hidden}
-.feature-body{padding:36px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px}
-.feature-body p{color:var(--muted);margin-top:12px}
-.list{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+/* ---------- featured case study ---------- */
+.feature{border:1px solid var(--border);border-radius:var(--r-lg);background:var(--surface);overflow:hidden}
+.feature-top{padding:36px;display:grid;grid-template-columns:1.05fr 1fr;gap:44px}
+.feature-top h3{margin-top:10px;font-size:1.4rem;letter-spacing:-.01em}
+.feature-top p{color:var(--muted);margin-top:12px}
+.list{margin:0;padding:0;list-style:none;display:grid;gap:12px;align-content:start}
 .list li{display:grid;grid-template-columns:20px 1fr;gap:10px;color:var(--muted)}
 .list li svg{margin-top:3px;color:var(--accent)}
 .list b{color:var(--fg);font-weight:600}
-.flow{border-top:1px solid var(--border);background:var(--soft);padding:28px 36px;overflow-x:auto}
-.flow-row{display:flex;align-items:center;min-width:760px}
-.node{flex:0 0 auto;width:158px;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface)}
-.node.k{border-color:var(--accent)}
+
+.console{margin:0;padding:26px 36px 30px;border-top:1px solid var(--border);background:var(--bg-2)}
+.console-bar{display:flex;align-items:center;gap:14px;margin-bottom:14px;font:500 .74rem var(--mono);color:var(--muted)}
+.console-bar .who{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.live{display:inline-flex;align-items:center;gap:8px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.live i{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:live 1.6s var(--ease) infinite}
+@keyframes live{0%{box-shadow:0 0 0 0 var(--accent-line)}100%{box-shadow:0 0 0 8px transparent}}
+.count{padding:3px 8px;border:1px solid var(--border);border-radius:6px;color:var(--fg);font-variant-numeric:tabular-nums}
+.console-in{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;align-items:stretch}
+.map{width:100%;height:100%;min-height:220px;display:block;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
+.map .gl{stroke:var(--border-soft);stroke-width:1;fill:none}
+.map .bld{fill:var(--soft);stroke:var(--border);stroke-width:1}
+.map .bt{fill:var(--muted);font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-anchor:middle}
+.map .route{fill:none;stroke:var(--muted);stroke-opacity:.55;stroke-width:2;stroke-dasharray:3 7;stroke-linecap:round}
+.map .trail{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.map .cpb{fill:var(--surface);stroke:var(--muted);stroke-width:2}
+.map .cpd{fill:var(--accent);stroke:var(--accent);stroke-width:2}
+.map .ct{fill:var(--fg);font-family:var(--mono);font-size:10px;font-weight:600;text-anchor:middle;dominant-baseline:central}
+.map .ctd{fill:var(--accent-fg)}
+.map .halo{fill:var(--accent);opacity:.35}
+.map .gd{fill:var(--fg);stroke:var(--accent);stroke-width:3}
+.feed{list-style:none;margin:0;padding:4px 0;border:1px solid var(--border);border-radius:12px;background:var(--surface);font:500 .76rem/1.4 var(--mono);display:flex;flex-direction:column}
+.feed li{display:grid;grid-template-columns:42px 34px 1fr auto;gap:10px;align-items:center;padding:9px 14px;color:var(--muted);border-bottom:1px solid var(--border-soft);transition:color .3s var(--ease)}
+.feed li:last-child{border-bottom:0}
+.feed .tm{font-variant-numeric:tabular-nums;opacity:.8}
+.feed .pl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--sans);font-size:.85rem}
+.feed .st{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em}
+.feed .st svg{width:13px;height:13px}
+.feed .d{display:none;align-items:center;gap:4px}
+.feed li.on{color:var(--fg)}
+.feed li.on .st{color:var(--accent)}
+.feed li.on .p{display:none}
+.feed li.on .d{display:inline-flex}
+.feed li.on .pl{color:var(--fg)}
+.feed .final{grid-template-columns:1fr;color:var(--accent);background:var(--accent-soft);margin-top:auto;border-radius:0 0 11px 11px;opacity:0;transition:opacity .3s var(--ease)}
+.feed.all .final{opacity:1}
+.console figcaption{margin-top:12px;font:400 .72rem var(--mono);color:var(--muted)}
+
+.flow{border-top:1px solid var(--border);padding:28px 36px}
+.flow-row{display:flex;align-items:center}
+.node{flex:0 0 auto;width:168px;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg)}
+.node.k{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 .node b{display:block;font:600 .95rem var(--sans);margin-top:2px}
-.link{flex:1;min-width:48px;height:2px;margin:0 6px;position:relative;background:var(--border);overflow:hidden}
+.link-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:56px;padding:0 6px}
+.link-wrap span{font:500 .66rem var(--mono);color:var(--accent);white-space:nowrap}
+.link{width:100%;height:2px;position:relative;background:var(--border);overflow:hidden;border-radius:2px}
 .link::after{content:"";position:absolute;top:0;left:-30%;width:30%;height:100%;background:var(--accent);animation:pkt 2.2s linear infinite}
-.link-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:60px}
-.link-wrap .link{width:100%;flex:none;margin:0}
-.link-wrap span{font:500 .68rem var(--mono);color:var(--accent)}
 @keyframes pkt{to{left:100%}}
-.tags{display:flex;flex-wrap:wrap;gap:6px;padding:20px 36px;border-top:1px solid var(--border)}
-.tag{font:500 .74rem var(--mono);padding:4px 9px;border-radius:6px;border:1px solid var(--border);color:var(--muted);background:var(--bg)}
-@media (max-width:860px){.feature-body{grid-template-columns:1fr;padding:24px;gap:24px}.flow{padding:22px 24px}.tags{padding:18px 24px}}
+@keyframes pktv{to{top:100%}}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.feature>.tags{padding:20px 36px;border-top:1px solid var(--border)}
+.tag{font:500 .74rem/1.5 var(--mono);padding:4px 9px;border-radius:6px;border:1px solid var(--border);color:var(--muted);background:var(--bg)}
+.tag.core{color:var(--accent);border-color:var(--accent-line);background:var(--accent-soft)}
+@media (max-width:900px){
+  .feature-top{grid-template-columns:1fr;padding:26px;gap:26px}
+  .console{padding:22px 26px 24px}.console-in{grid-template-columns:1fr}
+  .flow{padding:24px 26px}.feature>.tags{padding:18px 26px}
+}
+@media (max-width:760px){
+  .flow-row{flex-direction:column;align-items:stretch}
+  .node{width:auto}
+  .link-wrap{position:relative;flex-direction:row;justify-content:center;min-height:42px;padding:0}
+  .link-wrap span{position:absolute;left:calc(50% + 12px);top:50%;transform:translateY(-50%)}
+  .link{width:2px;height:30px;flex:none}
+  .link::after{left:0;top:-30%;width:100%;height:30%;animation-name:pktv}
+}
+@media (max-width:480px){
+  .feature-top,.console,.flow{padding-left:18px;padding-right:18px}.feature>.tags{padding:16px 18px}
+  .feed li{grid-template-columns:38px 30px 1fr auto;gap:8px;padding:9px 12px}
+  .console-bar .who{display:none}
+}
 
-/* experience */
-.xp{border-top:1px solid var(--border)}
-.xp-item{display:grid;grid-template-columns:190px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--border);transition:background .2s var(--ease)}
-.xp-item .when{font:500 .8rem/1.8 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
-.xp-item .org{color:var(--accent);font-weight:500}
-.xp-item p{color:var(--muted);margin-top:6px;max-width:66ch}
-@media (max-width:640px){.xp-item{grid-template-columns:1fr;gap:4px}}
+/* bento: inside the device */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tile{position:relative;display:flex;flex-direction:column;gap:10px;padding:24px;border:1px solid var(--border);border-radius:16px;background:var(--surface);overflow:hidden;transition:transform .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.tile:hover{transform:translateY(-3px);border-color:var(--accent-line);box-shadow:0 14px 34px -22px color-mix(in srgb,var(--accent) 60%,transparent)}
+.tile.w2{grid-column:span 2}
+.tile .ic,.card .ic,.sk .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--soft);color:var(--accent);flex:0 0 auto}
+.tile p{color:var(--muted);font-size:.95rem}
+.tile .spec{margin-top:auto;padding-top:8px;font:500 .72rem/1.5 var(--mono);color:var(--accent);overflow-wrap:anywhere}
+.tile.w2::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(closest-side,var(--accent-soft),transparent);pointer-events:none}
+.code{display:block;margin-top:6px;padding:10px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--border-soft);font:500 .74rem/1.5 var(--mono);color:var(--muted);overflow-wrap:anywhere}
+.code em{font-style:normal;color:var(--accent)}
+@media (max-width:900px){.bento{grid-template-columns:1fr 1fr}.tile.w2:last-child{grid-column:auto}}
+@media (max-width:620px){.bento{grid-template-columns:1fr}.tile.w2{grid-column:auto}}
 
-/* projects */
+/* ---------- experience timeline ---------- */
+.tl{--x:206px;position:relative;list-style:none;margin:0;padding:0}
+.tl::before{content:"";position:absolute;left:var(--x);top:14px;bottom:14px;width:2px;border-radius:2px;background:linear-gradient(var(--accent),var(--border) 22%)}
+.tl-item{position:relative;display:grid;grid-template-columns:182px 1fr;gap:48px;padding:18px 0}
+.tl-item::before{content:"";position:absolute;left:var(--x);top:27px;width:12px;height:12px;margin-left:-5px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)}
+.tl-item.now::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
+.tl-item .when{padding-top:3px;font:500 .8rem/1.8 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+.tl-item h3{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}
+.tl-item .org{color:var(--accent);font-weight:500}
+.tl-item p{color:var(--muted);margin-top:6px;max-width:66ch}
+.tl-item .tags{margin-top:12px}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font:600 .66rem/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-fg);background:var(--accent)}
+@media (max-width:700px){
+  .tl{--x:6px}
+  .tl-item{grid-template-columns:1fr;gap:4px;padding:16px 0 16px 32px}
+  .tl-item::before{top:23px}
+  .tl-item .when{text-align:left;padding-top:0}
+}
+
+/* ---------- projects ---------- */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .card{display:flex;flex-direction:column;gap:12px;padding:24px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);transition:transform .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease)}
-.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 10px 30px -18px color-mix(in srgb,var(--accent) 60%,transparent)}
-.card .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--soft);color:var(--accent)}
+.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 12px 30px -18px color-mix(in srgb,var(--accent) 60%,transparent)}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .card p{color:var(--muted);font-size:.95rem}
-.card .tags{padding:0;border:0;margin-top:auto}
+.card .tags{margin-top:auto;padding-top:4px}
 
-/* skills */
-.skills{border:1px solid var(--border);border-radius:var(--r);background:var(--surface);overflow:hidden}
-.skill-row{display:grid;grid-template-columns:220px 1fr;gap:16px;padding:16px 22px;border-bottom:1px solid var(--border);align-items:center}
-.skill-row:last-child{border-bottom:0}
-.skill-row .tags{padding:0;border:0}
-@media (max-width:640px){.skill-row{grid-template-columns:1fr;gap:8px}}
+/* ---------- skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sk{display:grid;gap:14px;align-content:start;padding:22px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface)}
+.sk-h{display:flex;align-items:center;gap:12px}
+.sk-h h3{font-size:1rem}
+.legend{display:inline-flex;align-items:center;gap:8px;font:500 .74rem var(--mono);color:var(--muted)}
+.legend .tag{padding:2px 7px}
+@media (max-width:900px){.skills{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.skills{grid-template-columns:1fr}}
 
-/* education */
+/* ---------- education ---------- */
 .two{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
-.box{padding:26px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);display:grid;gap:18px;align-content:start}
+.box{padding:26px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);display:grid;gap:20px;align-content:start}
+.edu{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.edu .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--soft);color:var(--accent)}
 .edu p{color:var(--muted);font-size:.95rem;margin-top:2px}
-.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
 .row:last-child{border-bottom:0}
 .row span:last-child{font:500 .8rem var(--mono);color:var(--muted)}
 @media (max-width:760px){.two{grid-template-columns:1fr}}
 
-/* contact */
-.contact{margin-top:88px;padding:44px;border-radius:18px;background:var(--surface);border:1px solid var(--accent);box-shadow:0 0 60px -30px var(--accent);display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
-.contact h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+/* ---------- contact ---------- */
+.contact{margin-top:112px;padding:48px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--accent-line);box-shadow:0 0 70px -34px var(--accent);display:grid;grid-template-columns:1.15fr 1fr;gap:36px;align-items:center;position:relative;overflow:hidden;isolation:isolate}
+.contact::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(var(--dots) 1px,transparent 1.3px);background-size:20px 20px;-webkit-mask-image:linear-gradient(110deg,transparent 45%,#000);mask-image:linear-gradient(110deg,transparent 45%,#000)}
+.contact h2{margin-top:10px;font-size:clamp(1.9rem,4.2vw,2.8rem)}
 .contact p{margin-top:12px;color:var(--muted);max-width:46ch}
 .clinks{display:grid;gap:10px}
-.clinks a,.clinks button{display:flex;align-items:center;gap:12px;min-height:52px;padding:0 16px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:inherit;font:500 .95rem var(--sans);text-decoration:none;cursor:pointer;text-align:left;width:100%;transition:border-color .2s var(--ease),transform .2s var(--ease)}
-.clinks a:hover,.clinks button:hover{border-color:var(--accent);transform:translateX(3px)}
-.clinks svg{color:var(--accent)}
-.clinks small{margin-left:auto;font:400 .74rem var(--mono);opacity:.7;overflow-wrap:anywhere;text-align:right}
-@media (max-width:860px){.contact{grid-template-columns:1fr;padding:28px 22px}}
-footer{padding:32px 0 44px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.crow{display:grid;grid-template-columns:1fr auto;gap:8px}
+.clinks a{display:flex;align-items:center;gap:12px;min-height:54px;padding:0 16px;border-radius:10px;border:1px solid var(--border);background:var(--bg);font:500 .95rem var(--sans);text-decoration:none;min-width:0;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+.clinks a:hover{border-color:var(--accent);transform:translateX(3px)}
+.clinks a>svg{color:var(--accent)}
+.clinks small{margin-left:auto;font:400 .74rem var(--mono);color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;padding-left:8px}
+.crow .icon-btn{width:54px;height:54px;background:var(--bg)}
+@media (max-width:860px){.contact{grid-template-columns:1fr;padding:30px 22px;margin-top:88px}}
+@media (max-width:400px){.clinks small{display:none}}
 
-/* motion: content is visible by default; JS adds a subtle reveal */
-.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:36px 0 48px}
+.foot-actions{display:flex;gap:8px;flex-wrap:wrap}
+.lnk{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:10px;border:1px solid var(--border);background:transparent;font:500 .8rem var(--mono);color:var(--muted);text-decoration:none;transition:color .2s var(--ease),border-color .2s var(--ease)}
+.lnk:hover{color:var(--fg);border-color:var(--fg)}
+.lnk svg{width:15px;height:15px}
+
+.toast{position:fixed;left:50%;bottom:24px;z-index:60;transform:translate(-50%,16px);opacity:0;pointer-events:none;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:var(--fg);color:var(--bg);font:500 .88rem var(--sans);box-shadow:var(--shadow);transition:opacity .25s var(--ease),transform .25s var(--ease)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast svg{color:var(--accent)}
+
+/* ---------- motion: content visible by default, JS adds a subtle reveal ---------- */
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .js .reveal.in{opacity:1;transform:none}
 /* Stagger List preset (ui-ux-pro-max motion): grid items scale in with a slight back-out */
-.js .grid .reveal,.js .skills .skill-row{opacity:0;transform:translateY(16px) scale(.96);transition:opacity .4s var(--ease),transform .4s var(--back)}
-.js .grid .reveal.in,.js .skills.in .skill-row{opacity:1;transform:none}
-.js .grid .reveal:nth-child(2){transition-delay:.06s}.js .grid .reveal:nth-child(3){transition-delay:.12s}.js .grid .reveal:nth-child(4){transition-delay:.18s}
-.js .skills .skill-row:nth-child(2){transition-delay:.06s}.js .skills .skill-row:nth-child(3){transition-delay:.12s}.js .skills .skill-row:nth-child(4){transition-delay:.18s}.js .skills .skill-row:nth-child(5){transition-delay:.24s}.js .skills .skill-row:nth-child(6){transition-delay:.3s}
-.card:hover,.js .grid .reveal.in:hover{transition-delay:0s!important;transform:translateY(-3px)}
+.js .stagger>.reveal{transform:translateY(16px) scale(.96);transition:opacity .45s var(--ease),transform .45s var(--back),border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.js .stagger>.reveal:nth-child(2){transition-delay:.06s,.06s,0s,0s}
+.js .stagger>.reveal:nth-child(3){transition-delay:.12s,.12s,0s,0s}
+.js .stagger>.reveal:nth-child(4){transition-delay:.18s,.18s,0s,0s}
+.js .stagger>.reveal:nth-child(5){transition-delay:.24s,.24s,0s,0s}
+.js .stagger>.reveal:nth-child(6){transition-delay:.30s,.30s,0s,0s}
+.js .stagger>.reveal:nth-child(7){transition-delay:.36s,.36s,0s,0s}
+.js .stagger>.reveal.in{transform:none}
+.js .stagger>.reveal.in:hover{transform:translateY(-3px);transition-delay:0s}
+
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .js .reveal,.js .grid .reveal,.js .skills .skill-row{opacity:1;transform:none}
+  .js .reveal,.js .stagger>.reveal{opacity:1;transform:none}
+  .js .term .ln{opacity:1}
   .progress{display:none}
+}
+
+/* ---------- print: a clean, recruiter-friendly copy ---------- */
+@media print{
+  :root,:root[data-theme="light"]{--bg:#fff;--bg-2:#fff;--surface:#fff;--fg:#0F172A;--muted:#334155;--soft:#F1F5F9;--border:#CBD5E1;--border-soft:#E2E8F0;--accent:#15803D;--accent-fg:#fff;--accent-soft:transparent;--accent-line:#15803D;--glow:none;--dots:transparent;--shadow:none;color-scheme:light}
+  @page{margin:14mm}
+  body{font-size:10.5pt}
+  header.nav,.progress,.skip,.term,.corner,.console,.cta,.toast,.foot-actions,.hero::after,.link::after,.contact::before{display:none!important}
+  .js .reveal,.js .stagger>.reveal,.js .hero-copy>*{opacity:1!important;transform:none!important;animation:none!important}
+  .hero-in{grid-template-columns:1fr 150px;gap:24px;padding:0 0 18px}
+  .visual{width:150px}
+  .hero h1{font-size:28pt}
+  section{padding-top:22px}
+  .contact{margin-top:22px;padding:18px;box-shadow:none}
+  .tile,.card,.sk,.tl-item,.box,.facts,.feature-top,.flow{break-inside:avoid}
+  .tile:hover,.card:hover{transform:none}
+  a{text-decoration:none}
 }
 </style>
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
@@ -185,173 +382,527 @@ footer{padding:32px 0 44px;display:flex;justify-content:space-between;flex-wrap:
   <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2Zm1.8 13.1H3.6V9h3.5v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm18 2-10 7L2 6"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></g></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></g></symbol>
   <symbol id="i-chip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></g></symbol>
+  <symbol id="i-term" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m6 9 3 3-3 3M12 15h5"/></g></symbol>
+  <symbol id="i-signal" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 20v-2M8 20v-6M13 20v-10M18 20V6"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></g></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9Z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></g></symbol>
+  <symbol id="i-pulse" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></g></symbol>
+  <symbol id="i-sync" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4L21 8"/><path d="M21 3v5h-5"/></g></symbol>
+  <symbol id="i-nfc" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 8.5a5 5 0 0 1 0 7M9.5 6a9 9 0 0 1 0 12M13 3.5a13 13 0 0 1 0 17M17 2a16 16 0 0 1 0 20"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></g></symbol>
   <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></g></symbol>
   <symbol id="i-gauge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 14l4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></g></symbol>
   <symbol id="i-trophy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></g></symbol>
 </svg>
 
-<a class="skip" href="#top">Skip to content</a>
+<a class="skip" href="#main" data-i18n="ui.skip">Skip to content</a>
 <div class="progress" id="progress" aria-hidden="true"></div>
-<header class="nav">
-  <div class="wrap">
-    <a class="logo" href="#top" aria-label="Rayen Askri, back to top">rayen<span>.</span>askri</a>
-    <ul class="menu">
-      <li class="l"><a href="#work">Work</a></li>
-      <li class="l"><a href="#experience">Experience</a></li>
-      <li class="l"><a href="#projects">Projects</a></li>
-      <li class="l"><a href="#skills">Skills</a></li>
-      <li class="l"><a href="#contact">Contact</a></li>
-      <li><button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode"><svg class="i"><use href="#i-sun"/></svg></button></li>
-    </ul>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="Rayen Askri, back to top" data-i18n-attr="aria-label:nav.home">rayen<span>.</span>askri</a>
+    <nav aria-label="Primary" data-i18n-attr="aria-label:nav.primary">
+      <ul class="menu">
+        <li><a href="#work" data-i18n="nav.work">Work</a></li>
+        <li><a href="#experience" data-i18n="nav.xp">Experience</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="tools">
+      <div class="seg" role="group" aria-label="Language" data-i18n-attr="aria-label:ui.lang">
+        <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+        <button type="button" data-lang="fr" lang="fr" aria-label="Français" aria-pressed="false">FR</button>
+      </div>
+      <button class="icon-btn" id="theme" type="button" aria-label="Switch to light theme"><svg class="i" aria-hidden="true"><use href="#i-sun"/></svg></button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Open menu"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
   </div>
+  <nav class="mnav" id="mnav" aria-label="Mobile" data-i18n-attr="aria-label:nav.mobile" hidden>
+    <ul>
+      <li><a href="#work"><span data-i18n="nav.work">Work</span><span class="label">01</span></a></li>
+      <li><a href="#experience"><span data-i18n="nav.xp">Experience</span><span class="label">02</span></a></li>
+      <li><a href="#projects"><span data-i18n="nav.projects">Projects</span><span class="label">03</span></a></li>
+      <li><a href="#skills"><span data-i18n="nav.skills">Skills</span><span class="label">04</span></a></li>
+      <li><a href="#contact"><span data-i18n="nav.contact">Contact</span><span class="label">06</span></a></li>
+    </ul>
+  </nav>
 </header>
 
-<main class="wrap" id="top">
-  <div class="hero">
-    <div>
-      <span class="status"><span class="dot" aria-hidden="true"></span>Open to opportunities</span>
-      <h1>Rayen Askri</h1>
-      <p class="role">Embedded Systems &amp; IoT Engineer</p>
-      <p class="lede">I build connected products end to end: firmware on the device, the communication between devices, and the backend, web dashboards and mobile apps people use to run them. Electronics engineering graduate from ISIMM, Monastir.</p>
-      <div class="cta">
-        <a class="btn primary" href="#contact">Get in touch <svg class="i"><use href="#i-arrow"/></svg></a>
-        <a class="btn" href="https://github.com/rayenaskri"><svg class="i"><use href="#i-github"/></svg>GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/rayen-askri-8048b4240/"><svg class="i"><use href="#i-linkedin"/></svg>LinkedIn</a>
+<main id="main" tabindex="-1">
+  <div class="hero" id="top">
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <span class="status" style="--i:0"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.status">Open to opportunities</span></span>
+        <h1 style="--i:1">Rayen Askri</h1>
+        <p class="role" style="--i:2" data-i18n="hero.role">Embedded Systems &amp; IoT Engineer</p>
+        <p class="lede" style="--i:3" data-i18n="hero.lede">I build connected products end to end: firmware on the device, the communication between devices, and the backend, web dashboards and mobile apps people use to run them. Electronics engineering graduate from ISIMM, Monastir.</p>
+        <div class="cta" style="--i:4">
+          <a class="btn primary" href="#contact"><span data-i18n="hero.cta">Get in touch</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn" href="#work" data-i18n="hero.cta2">See RondeGuard</a>
+          <a class="btn sq" href="https://github.com/rayenaskri" aria-label="GitHub" title="GitHub"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a>
+          <a class="btn sq" href="https://www.linkedin.com/in/rayen-askri-8048b4240/" aria-label="LinkedIn" title="LinkedIn"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+        </div>
+      </div>
+      <div class="visual">
+        <figure class="portrait">
+          <picture>
+            <source srcset="photo.webp" type="image/webp">
+            <img src="photo.jpg" width="640" height="800" alt="Rayen Askri at his ISIMM engineering graduation" data-i18n-attr="alt:hero.alt" fetchpriority="high">
+          </picture>
+          <figcaption>Ing. · ISIMM 2026</figcaption>
+        </figure>
+        <span class="corner c1" aria-hidden="true"></span><span class="corner c2" aria-hidden="true"></span><span class="corner c3" aria-hidden="true"></span>
+        <div class="term" aria-hidden="true">
+          <div class="term-bar"><i></i><i></i><i></i><span>serial · 115200</span></div>
+<pre><span class="ln hi">$ pio device monitor</span>
+<span class="ln dim">rondeguard-fw · esp32-s3</span>
+<span class="ln"><b>[ ok ]</b> freertos  scheduler up</span>
+<span class="ln"><b>[ ok ]</b> modem     lte attached</span>
+<span class="ln"><b>[ ok ]</b> mqtt      tls connected</span>
+<span class="ln"><b>[ ok ]</b> nfc       pn532 ready</span>
+<span class="ln"><b>[ ok ]</b> imu       man-down armed</span>
+<span class="ln hi">&gt; waiting for round<span class="cur">_</span></span></pre>
+        </div>
       </div>
     </div>
-    <figure class="portrait" style="margin:0">
-      <picture>
-        <source srcset="photo.webp" type="image/webp">
-        <img src="photo.jpg" width="640" height="800" alt="Rayen Askri at his ISIMM engineering graduation" fetchpriority="high">
-      </picture>
-      <figcaption>Ing. · ISIMM 2026</figcaption>
-    </figure>
   </div>
 
-  <div class="facts reveal">
-    <div><span class="label">Based in</span><strong>Tabarka, TN</strong></div>
-    <div><span class="label">Degree</span><strong>Eng. Electronics</strong></div>
-    <div><span class="label">Internships</span><strong>6</strong></div>
-    <div><span class="label">Languages</span><strong>AR · FR · EN</strong></div>
-  </div>
+  <div class="wrap">
+    <div class="facts reveal">
+      <div><span class="label" data-i18n="facts.based">Based in</span><strong>Tabarka, TN</strong><small><span id="clock">--:--</span> <span data-i18n="facts.local">local time</span></small></div>
+      <div><span class="label" data-i18n="facts.degree">Degree</span><strong data-i18n="facts.degreeV">Eng. Electronics</strong><small>ISIMM · 2026</small></div>
+      <div><span class="label" data-i18n="facts.intern">Internships</span><strong>6</strong><small data-i18n="facts.internS">2021 – 2026</small></div>
+      <div><span class="label" data-i18n="facts.lang">Languages</span><strong>AR · FR · EN</strong><small data-i18n="facts.langS">native · fluent · fluent</small></div>
+    </div>
 
-  <section id="work">
-    <div class="head reveal"><span class="label">01 · Featured project</span><h2>RondeGuard</h2></div>
-    <article class="feature reveal">
-      <div class="feature-body">
+    <!-- 01 · Featured -->
+    <section id="work">
+      <div class="head reveal"><span class="label" data-i18n="work.label">01 · Featured project</span><h2>RondeGuard</h2></div>
+      <article class="feature reveal">
+        <div class="feature-top">
+          <div>
+            <span class="label" data-i18n="work.meta">MakerSkills · Final-year project · Feb – Aug 2026</span>
+            <h3 data-i18n="work.title">A security-patrol platform, from the device on the guard's belt to the supervisor's screen</h3>
+            <p data-i18n="work.desc">Designed and built autonomously, from design to deployment: embedded IoT device, backend, supervisor web dashboard and agent mobile app.</p>
+          </div>
+          <ul class="list">
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="work.b1"><b>IoT device:</b> ESP32-S3 over 4G and MQTT, NFC checkpoint verification</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="work.b2"><b>Safety:</b> automatic incident detection (SOS, Man Down)</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="work.b3"><b>Live tracking:</b> real-time geolocation with Socket.IO and Leaflet maps</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="work.b4"><b>Apps:</b> React Native (Expo) agent app, React / TypeScript dashboard</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="work.b5"><b>Ops:</b> Node.js / Express, MongoDB, Docker, Nginx</span></li>
+          </ul>
+        </div>
+
+        <figure class="console" role="img" aria-label="Illustration of the supervisor view: a guard follows a patrol route on a site map and each NFC checkpoint turns green in the log as it is scanned." data-i18n-attr="aria-label:con.aria">
+          <div class="console-bar"><span class="live"><i></i><span data-i18n="con.live">Live</span></span><span class="who" data-i18n="con.who">Round 03 · Agent A-12 · Night shift</span><span class="count" id="cpn">0/6</span></div>
+          <div class="console-in">
+            <svg class="map" id="map" viewBox="0 0 460 300" preserveAspectRatio="xMidYMid meet">
+              <defs><pattern id="g20" width="20" height="20" patternUnits="userSpaceOnUse"><path class="gl" d="M20 0H0V20"/></pattern></defs>
+              <rect width="460" height="300" fill="url(#g20)"/>
+              <rect class="bld" x="90" y="100" width="120" height="170" rx="6"/><text class="bt" x="150" y="188">BLDG A</text>
+              <rect class="bld" x="250" y="22" width="120" height="198" rx="6"/><text class="bt" x="310" y="124">BLDG B</text>
+              <rect class="bld" x="90" y="20" width="120" height="40" rx="6"/><text class="bt" x="150" y="43">P</text>
+              <rect class="bld" x="410" y="100" width="36" height="150" rx="6"/>
+              <rect class="bld" x="14" y="110" width="36" height="110" rx="6"/>
+              <rect class="bld" x="250" y="258" width="120" height="30" rx="6"/>
+              <text class="bt" x="70" y="276">GATE</text>
+              <path class="route" d="M70 240V80H230V240H390V80" pathLength="800"/>
+              <path class="trail" d="M70 240V80H230V240H390V80" pathLength="800" stroke-dasharray="800" stroke-dashoffset="800"><animate attributeName="stroke-dashoffset" values="800;0;0" keyTimes="0;0.8;1" dur="12s" repeatCount="indefinite"/></path>
+              <g transform="translate(70 240)"><circle class="cpb" r="10"/><text class="ct">1</text><g opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;0.01" calcMode="discrete" dur="12s" repeatCount="indefinite"/><circle class="cpd" r="10"/><text class="ct ctd">1</text></g></g>
+              <g transform="translate(70 80)"><circle class="cpb" r="10"/><text class="ct">2</text><g opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;0.16" calcMode="discrete" dur="12s" repeatCount="indefinite"/><circle class="cpd" r="10"/><text class="ct ctd">2</text></g></g>
+              <g transform="translate(230 80)"><circle class="cpb" r="10"/><text class="ct">3</text><g opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;0.32" calcMode="discrete" dur="12s" repeatCount="indefinite"/><circle class="cpd" r="10"/><text class="ct ctd">3</text></g></g>
+              <g transform="translate(230 240)"><circle class="cpb" r="10"/><text class="ct">4</text><g opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;0.48" calcMode="discrete" dur="12s" repeatCount="indefinite"/><circle class="cpd" r="10"/><text class="ct ctd">4</text></g></g>
+              <g transform="translate(390 240)"><circle class="cpb" r="10"/><text class="ct">5</text><g opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;0.64" calcMode="discrete" dur="12s" repeatCount="indefinite"/><circle class="cpd" r="10"/><text class="ct ctd">5</text></g></g>
+              <g transform="translate(390 80)"><circle class="cpb" r="10"/><text class="ct">6</text><g opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;0.8" calcMode="discrete" dur="12s" repeatCount="indefinite"/><circle class="cpd" r="10"/><text class="ct ctd">6</text></g></g>
+              <g>
+                <circle class="halo" r="10"><animate attributeName="r" values="7;17;7" dur="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".45;0;.45" dur="1.6s" repeatCount="indefinite"/></circle>
+                <circle class="gd" r="5.5"/>
+                <animateMotion dur="12s" repeatCount="indefinite" path="M70 240V80H230V240H390V80" keyPoints="0;1;1" keyTimes="0;0.8;1" calcMode="linear"/>
+              </g>
+            </svg>
+            <ol class="feed" id="feed">
+              <li data-k><span class="tm">22:00</span><span>CP1</span><span class="pl" data-i18n="feed.p1">Main gate</span><span class="st"><span class="p" data-i18n="feed.pend">pending</span><span class="d"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="feed.ok">scanned</span></span></span></li>
+              <li data-k><span class="tm">22:06</span><span>CP2</span><span class="pl" data-i18n="feed.p2">Parking</span><span class="st"><span class="p" data-i18n="feed.pend">pending</span><span class="d"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="feed.ok">scanned</span></span></span></li>
+              <li data-k><span class="tm">22:12</span><span>CP3</span><span class="pl" data-i18n="feed.p3">North wing</span><span class="st"><span class="p" data-i18n="feed.pend">pending</span><span class="d"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="feed.ok">scanned</span></span></span></li>
+              <li data-k><span class="tm">22:18</span><span>CP4</span><span class="pl" data-i18n="feed.p4">Loading dock</span><span class="st"><span class="p" data-i18n="feed.pend">pending</span><span class="d"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="feed.ok">scanned</span></span></span></li>
+              <li data-k><span class="tm">22:24</span><span>CP5</span><span class="pl" data-i18n="feed.p5">South yard</span><span class="st"><span class="p" data-i18n="feed.pend">pending</span><span class="d"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="feed.ok">scanned</span></span></span></li>
+              <li data-k><span class="tm">22:30</span><span>CP6</span><span class="pl" data-i18n="feed.p6">East fence</span><span class="st"><span class="p" data-i18n="feed.pend">pending</span><span class="d"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="feed.ok">scanned</span></span></span></li>
+              <li class="final" data-i18n="feed.done">Round complete · 6/6 checkpoints · 0 incidents</li>
+            </ol>
+          </div>
+          <figcaption data-i18n="con.cap">Illustration · simplified supervisor view, not real patrol data</figcaption>
+        </figure>
+
+        <div class="flow" role="img" aria-label="Data flow: the ESP32-S3 device sends MQTT messages over 4G to a Node.js backend that stores data in MongoDB and pushes live updates over Socket.IO to the web dashboard and mobile app" data-i18n-attr="aria-label:flow.aria">
+          <div class="flow-row">
+            <div class="node k"><span class="label" data-i18n="flow.dev">Device</span><b>ESP32-S3 + NFC</b></div>
+            <div class="link-wrap"><span>4G · MQTT/TLS</span><div class="link"></div></div>
+            <div class="node"><span class="label">Backend</span><b>Node.js / Express</b></div>
+            <div class="link-wrap"><span>&nbsp;</span><div class="link"></div></div>
+            <div class="node"><span class="label" data-i18n="flow.db">Database</span><b>MongoDB</b></div>
+            <div class="link-wrap"><span>Socket.IO</span><div class="link"></div></div>
+            <div class="node k"><span class="label">Clients</span><b>Web · Mobile</b></div>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">ESP32-S3</span><span class="tag">FreeRTOS</span><span class="tag">C++</span><span class="tag">MQTT</span><span class="tag">LTE / GSM</span><span class="tag">NFC</span><span class="tag">BLE</span><span class="tag">React Native</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Socket.IO</span><span class="tag">MongoDB</span><span class="tag">Docker</span><span class="tag">Nginx</span>
+        </div>
+      </article>
+
+      <div class="sub reveal">
+        <h3 data-i18n="in.h">Inside the device</h3>
+        <p data-i18n="in.p">The firmware on the guard's belt unit: a FreeRTOS application in C++ on an ESP32-S3 with a 4G modem.</p>
+      </div>
+      <div class="bento stagger">
+        <article class="tile w2 reveal">
+          <div class="ic"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg></div>
+          <h3 data-i18n="in.off.h">Offline-first, encrypted</h3>
+          <p data-i18n="in.off.p">When the network drops, SOS and checkpoint events go to an AES-256-GCM encrypted SD buffer and are replayed in order once it returns. Agents can still log in with their badge while offline.</p>
+          <code class="code">RG2:<em>&lt;nonce&gt;</em>:<em>&lt;ciphertext&gt;</em>:<em>&lt;tag&gt;</em></code>
+          <span class="spec" data-i18n="in.off.s">AES-256-GCM · one key per data domain · master key never leaves the chip</span>
+        </article>
+        <article class="tile reveal">
+          <div class="ic"><svg class="i" aria-hidden="true"><use href="#i-pulse"/></svg></div>
+          <h3 data-i18n="in.md.h">Man-down detection</h3>
+          <p data-i18n="in.md.p">Fall and prolonged-immobility detection on an MPU6050, using the same calibrated algorithm as the mobile app. Supervisors tune it from the web dashboard.</p>
+          <span class="spec">MPU6050 · I²C</span>
+        </article>
+        <article class="tile reveal">
+          <div class="ic"><svg class="i" aria-hidden="true"><use href="#i-signal"/></svg></div>
+          <h3 data-i18n="in.lte.h">4G with GSM fallback</h3>
+          <p data-i18n="in.lte.p">LTE Cat-1 modem that switches to GSM based on coverage. MQTT runs over TLS.</p>
+          <span class="spec">SIM7670G · TinyGSM</span>
+        </article>
+        <article class="tile reveal">
+          <div class="ic"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg></div>
+          <h3 data-i18n="in.loc.h">Location without a fix</h3>
+          <p data-i18n="in.loc.p">GNSS positioning, with a cell-tower fallback resolved on the server when there is no satellite fix.</p>
+          <span class="spec">GNSS · Cell-ID</span>
+        </article>
+        <article class="tile reveal">
+          <div class="ic"><svg class="i" aria-hidden="true"><use href="#i-sync"/></svg></div>
+          <h3 data-i18n="in.ota.h">Over-the-air updates</h3>
+          <p data-i18n="in.ota.p">New firmware is downloaded and flashed in the field, triggered over MQTT, and never cut off by deep sleep.</p>
+          <span class="spec">OTA · MQTT trigger</span>
+        </article>
+        <article class="tile reveal">
+          <div class="ic"><svg class="i" aria-hidden="true"><use href="#i-nfc"/></svg></div>
+          <h3 data-i18n="in.nfc.h">NFC checkpoints</h3>
+          <p data-i18n="in.nfc.p">A PN532 reader validates patrol tags and agent badges. The OLED shows the current round and the time left.</p>
+          <span class="spec">PN532 · SSD1306 OLED</span>
+        </article>
+        <article class="tile w2 reveal">
+          <div class="ic"><svg class="i" aria-hidden="true"><use href="#i-chip"/></svg></div>
+          <h3 data-i18n="in.rtos.h">Real-time and low-power</h3>
+          <p data-i18n="in.rtos.p">One FreeRTOS task per subsystem (modem, GNSS, NFC, display, BLE, OTA) with mutex-protected shared state, and deep sleep when idle to save battery.</p>
+          <span class="spec">FreeRTOS · mutexes · deep sleep · BLE</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- 02 · Experience -->
+    <section id="experience">
+      <div class="head reveal"><span class="label" data-i18n="xp.label">02 · Career</span><h2 data-i18n="xp.h">Experience</h2></div>
+      <ol class="tl">
+        <li class="tl-item now reveal">
+          <span class="when" data-i18n="xp1.d">Feb 2026 – Aug 2026</span>
+          <div>
+            <h3><span><span data-i18n="xp1.t">Full-Stack &amp; IoT Developer</span> <span class="org">· MakerSkills</span></span><span class="badge" data-i18n="xp.latest">Latest</span></h3>
+            <p data-i18n="xp1.p">Final-year engineering internship. Built RondeGuard end to end, from design to deployment.</p>
+            <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">FreeRTOS</span><span class="tag">MQTT</span><span class="tag">React</span><span class="tag">Node.js</span></div>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="when" data-i18n="xp2.d">Jun 2025 – Sep 2025</span>
+          <div>
+            <h3><span><span data-i18n="xp.tech">Technician Intern</span> <span class="org" data-i18n="xp2.o">· SNCFT, IT Department</span></span></h3>
+            <p data-i18n="xp2.p">Delivered a complete GPS-based train geolocation system using embedded and IoT technologies.</p>
+            <div class="tags"><span class="tag">GPS</span><span class="tag">IoT</span></div>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="when" data-i18n="xp3.d">Jul 2024</span>
+          <div>
+            <h3><span><span data-i18n="xp.tech">Technician Intern</span> <span class="org" data-i18n="xp3.o">· SNCFT, Electronics Lab</span></span></h3>
+            <p data-i18n="xp3.p">Diagnosed, maintained and repaired electronic boards.</p>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="when" data-i18n="xp4.d">Feb 2023 – May 2023</span>
+          <div>
+            <h3><span><span data-i18n="xp4.t">Bachelor's Final Project</span> <span class="org">· SOTRADIES</span></span></h3>
+            <p data-i18n="xp4.p">Restored the machine control system of a 4-post vehicle lift.</p>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="when" data-i18n="xp5.d">Jun 2022 – Jul 2022</span>
+          <div>
+            <h3><span><span data-i18n="xp.tech">Technician Intern</span> <span class="org">· SAFRAN</span></span></h3>
+            <p data-i18n="xp5.p">Set up an infrared barrier system and supervised maintenance activities.</p>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="when" data-i18n="xp6.d">Jul 2021 – Aug 2021</span>
+          <div>
+            <h3><span><span data-i18n="xp6.t">Observation Intern</span> <span class="org">· Tunisie Télécom</span></span></h3>
+            <p data-i18n="xp6.p">Took part in supervising xDSL and ADSL lines.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 03 · Projects -->
+    <section id="projects">
+      <div class="head reveal"><span class="label" data-i18n="pr.label">03 · Academic</span><h2 data-i18n="pr.h">Projects</h2></div>
+      <div class="grid stagger">
+        <article class="card reveal"><div class="card-top"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-gauge"/></svg></div><span class="label" data-i18n="pr1.c">Control</span></div><h3 data-i18n="pr1.t">DC Motor PID Controller</h3><p data-i18n="pr1.p">Closed-loop speed regulation of a DC motor with encoder feedback and a supervision dashboard.</p><div class="tags"><span class="tag">PID</span><span class="tag" data-i18n="tag.enc">Encoder</span></div></article>
+        <article class="card reveal"><div class="card-top"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-eye"/></svg></div><span class="label">Vision</span></div><h3 data-i18n="pr2.t">Vision Line-Follower Robot</h3><p data-i18n="pr2.p">Camera-based path tracking driven by a Raspberry Pi.</p><div class="tags"><span class="tag">Raspberry Pi</span><span class="tag">Python</span></div></article>
+        <article class="card reveal"><div class="card-top"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-trophy"/></svg></div><span class="label" data-i18n="pr3.c">Competition</span></div><h3 data-i18n="pr3.t">All-Terrain Robot</h3><p data-i18n="pr3.p">Team build for the ENIT and ENIM robotics competitions.</p><div class="tags"><span class="tag" data-i18n="tag.rob">Robotics</span><span class="tag" data-i18n="tag.team">Teamwork</span></div></article>
+        <article class="card reveal"><div class="card-top"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-chip"/></svg></div><span class="label" data-i18n="pr3.c">Competition</span></div><h3 data-i18n="pr4.t">Line-Follower Robot</h3><p data-i18n="pr4.p">Sensor-based line follower for the ISET Nabeul robotics competition.</p><div class="tags"><span class="tag" data-i18n="tag.sens">Sensors</span><span class="tag">C</span></div></article>
+      </div>
+    </section>
+
+    <!-- 04 · Skills -->
+    <section id="skills">
+      <div class="head reveal"><span class="label" data-i18n="sk.label">04 · Toolbox</span><h2 data-i18n="sk.h">Skills</h2><span class="legend"><span class="tag core">ESP32</span><span data-i18n="sk.legend">= core of RondeGuard</span></span></div>
+      <div class="skills stagger">
+        <div class="sk reveal"><div class="sk-h"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-term"/></svg></div><h3>Firmware</h3></div><div class="tags"><span class="tag core">C</span><span class="tag core">C++</span><span class="tag core">FreeRTOS</span><span class="tag">Arduino</span><span class="tag">PlatformIO</span></div></div>
+        <div class="sk reveal"><div class="sk-h"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-chip"/></svg></div><h3 data-i18n="sk.hw">Hardware</h3></div><div class="tags"><span class="tag core">ESP32 / ESP32-S3</span><span class="tag">Raspberry Pi</span><span class="tag">FPGA</span><span class="tag">VHDL</span><span class="tag">I²C</span></div></div>
+        <div class="sk reveal"><div class="sk-h"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-signal"/></svg></div><h3 data-i18n="sk.con">Connectivity</h3></div><div class="tags"><span class="tag core">MQTT</span><span class="tag core">RFID / NFC</span><span class="tag core">LTE / GSM</span><span class="tag">BLE</span><span class="tag">WebSocket</span><span class="tag">TLS</span></div></div>
+        <div class="sk reveal"><div class="sk-h"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg></div><h3 data-i18n="sk.sw">Software</h3></div><div class="tags"><span class="tag core">TypeScript</span><span class="tag core">React</span><span class="tag core">React Native</span><span class="tag core">Node.js</span><span class="tag">JavaScript</span><span class="tag">Python</span></div></div>
+        <div class="sk reveal"><div class="sk-h"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-db"/></svg></div><h3 data-i18n="sk.ops">Data &amp; DevOps</h3></div><div class="tags"><span class="tag core">MongoDB</span><span class="tag core">Docker</span><span class="tag core">Nginx</span></div></div>
+        <div class="sk reveal"><div class="sk-h"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-tool"/></svg></div><h3 data-i18n="sk.tools">Design tools</h3></div><div class="tags"><span class="tag">Altium Designer</span><span class="tag">SolidWorks</span><span class="tag">Vivado</span><span class="tag">Quartus</span></div></div>
+      </div>
+    </section>
+
+    <!-- 05 · Education -->
+    <section id="education">
+      <div class="head reveal"><span class="label" data-i18n="ed.label">05 · Background</span><h2 data-i18n="ed.h">Education</h2></div>
+      <div class="two stagger">
+        <div class="box reveal">
+          <div class="edu"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-cap"/></svg></div><div><span class="label">2023 – 2026</span><h3>ISIMM, Monastir</h3><p data-i18n="ed1.p">Engineering degree in Electronics, Embedded Systems track</p></div></div>
+          <div class="edu"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-cap"/></svg></div><div><span class="label">2020 – 2023</span><h3>ISTIC, Borj Cédria</h3><p data-i18n="ed2.p">Bachelor's degree in Industrial Computing</p></div></div>
+        </div>
+        <div class="box reveal">
+          <span class="label" data-i18n="facts.lang">Languages</span>
+          <div>
+            <div class="row"><span data-i18n="lg.ar">Arabic</span><span data-i18n="lg.native">Native</span></div>
+            <div class="row"><span data-i18n="lg.fr">French</span><span data-i18n="lg.fluent">Fluent</span></div>
+            <div class="row"><span data-i18n="lg.en">English</span><span data-i18n="lg.fluent">Fluent</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · Contact -->
+    <section id="contact" style="padding:0">
+      <div class="contact reveal">
         <div>
-          <span class="label">MakerSkills · Final-year project · Feb – Aug 2026</span>
-          <h3 style="margin-top:10px;font-size:1.35rem">A security-patrol platform, from the device on the guard's belt to the supervisor's screen</h3>
-          <p>Designed and built autonomously, from design to deployment: embedded IoT device, backend, supervisor web dashboard and agent mobile app.</p>
+          <span class="label accent" data-i18n="ct.label">06 · Contact</span>
+          <h2 data-i18n="ct.h">Let's build something connected.</h2>
+          <p data-i18n="ct.p">Looking for a role as an Embedded Systems, IoT or Full-Stack engineer. Email or LinkedIn is the fastest way to reach me.</p>
         </div>
-        <ul class="list">
-          <li><svg class="i"><use href="#i-check"/></svg><span><b>IoT device:</b> ESP32 over MQTT, RFID/NFC checkpoint verification</span></li>
-          <li><svg class="i"><use href="#i-check"/></svg><span><b>Safety:</b> automatic incident detection (SOS, Man Down)</span></li>
-          <li><svg class="i"><use href="#i-check"/></svg><span><b>Live tracking:</b> real-time geolocation with Socket.IO and Leaflet maps</span></li>
-          <li><svg class="i"><use href="#i-check"/></svg><span><b>Apps:</b> React Native (Expo) agent app, React / TypeScript dashboard</span></li>
-          <li><svg class="i"><use href="#i-check"/></svg><span><b>Ops:</b> Node.js / Express, MongoDB, Docker, Nginx</span></li>
-        </ul>
-      </div>
-      <div class="flow" role="img" aria-label="Data flow: ESP32 device sends MQTT messages to a Node.js backend that stores data in MongoDB and pushes live updates over WebSocket to the web dashboard and mobile app">
-        <div class="flow-row">
-          <div class="node k"><span class="label">Device</span><b>ESP32 + RFID/NFC</b></div>
-          <div class="link-wrap"><span>MQTT</span><div class="link"></div></div>
-          <div class="node"><span class="label">Backend</span><b>Node.js / Express</b></div>
-          <div class="link-wrap"><span>&nbsp;</span><div class="link"></div></div>
-          <div class="node"><span class="label">Database</span><b>MongoDB</b></div>
-          <div class="link-wrap"><span>WebSocket</span><div class="link"></div></div>
-          <div class="node k"><span class="label">Clients</span><b>Web · Mobile</b></div>
+        <div class="clinks">
+          <div class="crow">
+            <a href="mailto:rayenaskri2020@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><span data-i18n="ct.email">Email</span><small>rayenaskri2020@gmail.com</small></a>
+            <button class="icon-btn" id="copy" type="button" aria-label="Copy email address" data-i18n-attr="aria-label:ct.copy" title="Copy email address"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg></button>
+          </div>
+          <a href="https://www.linkedin.com/in/rayen-askri-8048b4240/"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn<small>rayen-askri-8048b4240</small></a>
+          <a href="https://github.com/rayenaskri"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg>GitHub<small>rayenaskri</small></a>
         </div>
       </div>
-      <div class="tags">
-        <span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">RFID/NFC</span><span class="tag">React Native</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Socket.IO</span><span class="tag">MongoDB</span><span class="tag">Docker</span><span class="tag">Nginx</span>
+    </section>
+
+    <footer>
+      <span class="label">© 2026 Rayen Askri · <span data-i18n="ft.loc">Tabarka, Tunisia</span></span>
+      <div class="foot-actions">
+        <button class="lnk" id="print" type="button"><svg aria-hidden="true"><use href="#i-print"/></svg><span data-i18n="ft.pdf">Save as PDF</span></button>
+        <a class="lnk" href="#top"><svg aria-hidden="true"><use href="#i-up"/></svg><span data-i18n="ft.top">Back to top</span></a>
       </div>
-    </article>
-  </section>
-
-  <section id="experience">
-    <div class="head reveal"><span class="label">02 · Career</span><h2>Experience</h2></div>
-    <div class="xp">
-      <div class="xp-item reveal"><span class="when">Feb 2026 – Aug 2026</span><div><h3>Full-Stack &amp; IoT Developer <span class="org">· MakerSkills</span></h3><p>Final-year engineering internship. Built RondeGuard end to end, from design to deployment.</p></div></div>
-      <div class="xp-item reveal"><span class="when">Jun 2025 – Sep 2025</span><div><h3>Technician Intern <span class="org">· SNCFT, IT Department</span></h3><p>Delivered a complete GPS-based train geolocation system using embedded and IoT technologies.</p></div></div>
-      <div class="xp-item reveal"><span class="when">Jul 2024</span><div><h3>Technician Intern <span class="org">· SNCFT, Electronics Lab</span></h3><p>Diagnosed, maintained and repaired electronic boards.</p></div></div>
-      <div class="xp-item reveal"><span class="when">Feb 2023 – May 2023</span><div><h3>Bachelor's Final Project <span class="org">· SOTRADIES</span></h3><p>Restored the machine control system of a 4-post vehicle lift.</p></div></div>
-      <div class="xp-item reveal"><span class="when">Jun 2022 – Jul 2022</span><div><h3>Technician Intern <span class="org">· SAFRAN</span></h3><p>Set up an infrared barrier system and supervised maintenance activities.</p></div></div>
-      <div class="xp-item reveal"><span class="when">Jul 2021 – Aug 2021</span><div><h3>Observation Intern <span class="org">· Tunisie Télécom</span></h3><p>Took part in supervising xDSL and ADSL lines.</p></div></div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="head reveal"><span class="label">03 · Academic</span><h2>Projects</h2></div>
-    <div class="grid">
-      <article class="card reveal"><div class="ic"><svg class="i"><use href="#i-gauge"/></svg></div><h3>DC Motor PID Controller</h3><p>Closed-loop speed regulation of a DC motor with encoder feedback and a supervision dashboard.</p><div class="tags"><span class="tag">PID</span><span class="tag">Encoder</span></div></article>
-      <article class="card reveal"><div class="ic"><svg class="i"><use href="#i-eye"/></svg></div><h3>Vision Line-Follower Robot</h3><p>Camera-based path tracking driven by a Raspberry Pi.</p><div class="tags"><span class="tag">Raspberry Pi</span><span class="tag">Python</span></div></article>
-      <article class="card reveal"><div class="ic"><svg class="i"><use href="#i-trophy"/></svg></div><h3>All-Terrain Robot</h3><p>Team build for the ENIT and ENIM robotics competitions.</p><div class="tags"><span class="tag">Robotics</span><span class="tag">Competition</span></div></article>
-      <article class="card reveal"><div class="ic"><svg class="i"><use href="#i-chip"/></svg></div><h3>Line-Follower Robot</h3><p>Sensor-based line follower for the ISET Nabeul robotics competition.</p><div class="tags"><span class="tag">Sensors</span><span class="tag">C</span></div></article>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="head reveal"><span class="label">04 · Toolbox</span><h2>Skills</h2></div>
-    <div class="skills reveal">
-      <div class="skill-row"><span class="label">Languages</span><div class="tags"><span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">JavaScript/TypeScript</span><span class="tag">VHDL</span></div></div>
-      <div class="skill-row"><span class="label">Hardware</span><div class="tags"><span class="tag">ESP32</span><span class="tag">Raspberry Pi</span><span class="tag">FPGA</span></div></div>
-      <div class="skill-row"><span class="label">Protocols</span><div class="tags"><span class="tag">MQTT</span><span class="tag">RFID/NFC</span><span class="tag">WebSocket</span></div></div>
-      <div class="skill-row"><span class="label">Web &amp; Mobile</span><div class="tags"><span class="tag">React</span><span class="tag">React Native</span><span class="tag">Node.js</span></div></div>
-      <div class="skill-row"><span class="label">Database &amp; DevOps</span><div class="tags"><span class="tag">MongoDB</span><span class="tag">Docker</span><span class="tag">Nginx</span></div></div>
-      <div class="skill-row"><span class="label">Tools</span><div class="tags"><span class="tag">Altium Designer</span><span class="tag">SolidWorks</span><span class="tag">Vivado</span><span class="tag">Quartus</span></div></div>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="head reveal"><span class="label">05 · Background</span><h2>Education</h2></div>
-    <div class="two">
-      <div class="box reveal">
-        <div class="edu"><span class="label">2023 – 2026</span><h3>ISIMM, Monastir</h3><p>Engineering degree in Electronics, Embedded Systems track</p></div>
-        <div class="edu"><span class="label">2020 – 2023</span><h3>ISTIC, Borj Cédria</h3><p>Bachelor's degree in Industrial Computing</p></div>
-      </div>
-      <div class="box reveal">
-        <span class="label">Languages</span>
-        <div><div class="row"><span>Arabic</span><span>Native</span></div><div class="row"><span>French</span><span>Fluent</span></div><div class="row"><span>English</span><span>Fluent</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" style="padding:0">
-    <div class="contact reveal">
-      <div>
-        <span class="label" style="color:var(--accent)">06 · Contact</span>
-        <h2 style="margin-top:10px">Let's build something connected.</h2>
-        <p>Looking for a role as an Embedded Systems, IoT or Full-Stack engineer. Email or LinkedIn is the fastest way to reach me.</p>
-      </div>
-      <div class="clinks">
-        <a href="mailto:rayenaskri2020@gmail.com"><svg class="i"><use href="#i-mail"/></svg>Email<small>rayenaskri2020@gmail.com</small></a>
-        <a href="https://www.linkedin.com/in/rayen-askri-8048b4240/"><svg class="i"><use href="#i-linkedin"/></svg>LinkedIn<small>rayen-askri-8048b4240</small></a>
-        <a href="https://github.com/rayenaskri"><svg class="i"><use href="#i-github"/></svg>GitHub<small>rayenaskri</small></a>
-      </div>
-    </div>
-  </section>
-
-  <footer><span class="label">© 2026 Rayen Askri</span><span class="label">Tabarka, Tunisia</span></footer>
+    </footer>
+  </div>
 </main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function(){
-  var root=document.documentElement;
-  document.getElementById('theme').addEventListener('click',function(){
-    root.dataset.theme=root.dataset.theme==='light'?'dark':'light';
-    try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+  var d=document,root=d.documentElement;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(id){return d.getElementById(id)}
+  function store(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  function read(k){try{return localStorage.getItem(k)}catch(e){return null}}
+
+  /* ---------- i18n: English lives in the HTML, French below ---------- */
+  var FR={
+    "doc.title":"Rayen Askri · Ingénieur Systèmes Embarqués & IoT",
+    "ui.skip":"Aller au contenu","ui.lang":"Langue","ui.toLight":"Passer au thème clair","ui.toDark":"Passer au thème sombre",
+    "ui.open":"Ouvrir le menu","ui.close":"Fermer le menu","ui.copied":"Adresse e-mail copiée",
+    "nav.home":"Rayen Askri, retour en haut","nav.primary":"Navigation principale","nav.mobile":"Navigation mobile",
+    "nav.work":"Projet phare","nav.xp":"Expérience","nav.projects":"Projets","nav.skills":"Compétences","nav.contact":"Contact",
+    "hero.status":"Disponible pour un poste","hero.role":"Ingénieur Systèmes Embarqués &amp; IoT",
+    "hero.lede":"Je conçois des produits connectés de bout en bout&nbsp;: le firmware embarqué, la communication entre les appareils, puis le backend, les tableaux de bord web et les applications mobiles qui servent à les piloter. Ingénieur en électronique diplômé de l’ISIMM, Monastir.",
+    "hero.cta":"Me contacter","hero.cta2":"Voir RondeGuard","hero.alt":"Rayen Askri lors de sa remise de diplôme d’ingénieur à l’ISIMM",
+    "facts.based":"Basé à","facts.local":"heure locale","facts.degree":"Diplôme","facts.degreeV":"Ing. Électronique","facts.intern":"Stages","facts.lang":"Langues","facts.langS":"maternelle · courant · courant",
+    "work.label":"01 · Projet phare","work.meta":"MakerSkills · Projet de fin d’études · févr. – août 2026",
+    "work.title":"Une plateforme de rondes de sécurité, du boîtier à la ceinture de l’agent jusqu’à l’écran du superviseur",
+    "work.desc":"Conçue et réalisée en autonomie, de la conception au déploiement&nbsp;: boîtier IoT embarqué, backend, tableau de bord web superviseur et application mobile agent.",
+    "work.b1":"<b>Boîtier IoT&nbsp;:</b> ESP32-S3 en 4G et MQTT, validation des points de contrôle par NFC",
+    "work.b2":"<b>Sécurité&nbsp;:</b> détection automatique d’incidents (SOS, homme à terre)",
+    "work.b3":"<b>Suivi en direct&nbsp;:</b> géolocalisation en temps réel avec Socket.IO et cartes Leaflet",
+    "work.b4":"<b>Applications&nbsp;:</b> app agent React Native (Expo), tableau de bord React / TypeScript",
+    "work.b5":"<b>Déploiement&nbsp;:</b> Node.js / Express, MongoDB, Docker, Nginx",
+    "con.aria":"Illustration de la vue superviseur : un agent suit un parcours de ronde sur le plan du site et chaque point de contrôle NFC passe au vert dans le journal une fois badgé.",
+    "con.live":"En direct","con.who":"Ronde 03 · Agent A-12 · Équipe de nuit",
+    "con.cap":"Illustration · vue superviseur simplifiée, pas de données réelles",
+    "feed.p1":"Entrée principale","feed.p2":"Parking","feed.p3":"Aile nord","feed.p4":"Quai de chargement","feed.p5":"Cour sud","feed.p6":"Clôture est",
+    "feed.pend":"en attente","feed.ok":"validé","feed.done":"Ronde terminée · 6/6 points · 0 incident",
+    "flow.aria":"Flux de données : le boîtier ESP32-S3 envoie des messages MQTT en 4G à un backend Node.js qui enregistre les données dans MongoDB et pousse les mises à jour en temps réel via Socket.IO vers le tableau de bord web et l’application mobile",
+    "flow.dev":"Boîtier","flow.db":"Base de données",
+    "in.h":"Dans le boîtier","in.p":"Le firmware du boîtier porté par l’agent&nbsp;: une application FreeRTOS en C++ sur ESP32-S3 avec modem 4G.",
+    "in.off.h":"Hors ligne d’abord, et chiffré",
+    "in.off.p":"Quand le réseau tombe, les événements SOS et de pointage sont écrits dans un tampon SD chiffré en AES-256-GCM, puis renvoyés dans l’ordre dès son retour. Les agents peuvent toujours se connecter avec leur badge hors ligne.",
+    "in.off.s":"AES-256-GCM · une clé par domaine de données · la clé maître ne quitte jamais la puce",
+    "in.md.h":"Détection homme à terre","in.md.p":"Détection de chute et d’immobilité prolongée sur MPU6050, avec le même algorithme calibré que l’application mobile. Le superviseur le règle depuis le tableau de bord web.",
+    "in.lte.h":"4G avec repli GSM","in.lte.p":"Modem LTE Cat-1 qui bascule en GSM selon la couverture. MQTT passe par TLS.",
+    "in.loc.h":"Localisation sans fix GPS","in.loc.p":"Positionnement GNSS, avec repli sur les antennes relais résolu côté serveur en l’absence de fix satellite.",
+    "in.ota.h":"Mises à jour OTA","in.ota.p":"Le nouveau firmware est téléchargé et flashé sur le terrain, déclenché par MQTT, sans jamais être interrompu par la mise en veille.",
+    "in.nfc.h":"Points de contrôle NFC","in.nfc.p":"Un lecteur PN532 valide les tags de ronde et les badges agents. L’écran OLED affiche la ronde en cours et le temps restant.",
+    "in.rtos.h":"Temps réel et basse consommation","in.rtos.p":"Une tâche FreeRTOS par sous-système (modem, GNSS, NFC, affichage, BLE, OTA), un état partagé protégé par mutex, et une veille profonde au repos pour préserver la batterie.",
+    "xp.label":"02 · Parcours","xp.h":"Expérience","xp.latest":"Récent","xp.tech":"Stagiaire technicien",
+    "xp1.d":"févr. 2026 – août 2026","xp1.t":"Développeur Full-Stack &amp; IoT","xp1.p":"Stage de fin d’études d’ingénieur. Réalisation de RondeGuard de bout en bout, de la conception au déploiement.",
+    "xp2.d":"juin 2025 – sept. 2025","xp2.o":"· SNCFT, Direction informatique","xp2.p":"Réalisation d’un système complet de géolocalisation des trains par GPS, basé sur des technologies embarquées et IoT.",
+    "xp3.d":"juil. 2024","xp3.o":"· SNCFT, Laboratoire d’électronique","xp3.p":"Diagnostic, maintenance et réparation de cartes électroniques.",
+    "xp4.d":"févr. 2023 – mai 2023","xp4.t":"Projet de fin d’études (Licence)","xp4.p":"Remise en état du système de commande d’un pont élévateur à 4 colonnes.",
+    "xp5.d":"juin 2022 – juil. 2022","xp5.p":"Mise en place d’un système de barrière infrarouge et suivi des activités de maintenance.",
+    "xp6.d":"juil. 2021 – août 2021","xp6.t":"Stagiaire d’observation","xp6.p":"Participation à la supervision des lignes xDSL et ADSL.",
+    "pr.label":"03 · Académique","pr.h":"Projets",
+    "pr1.c":"Automatique","pr1.t":"Régulateur PID de moteur DC","pr1.p":"Régulation de vitesse en boucle fermée d’un moteur DC avec retour codeur et tableau de supervision.",
+    "pr2.t":"Robot suiveur de ligne par vision","pr2.p":"Suivi de trajectoire par caméra, piloté par une Raspberry Pi.",
+    "pr3.c":"Compétition","pr3.t":"Robot tout-terrain","pr3.p":"Réalisé en équipe pour les compétitions de robotique de l’ENIT et de l’ENIM.",
+    "pr4.t":"Robot suiveur de ligne","pr4.p":"Suiveur de ligne à capteurs pour la compétition de robotique de l’ISET Nabeul.",
+    "tag.enc":"Codeur","tag.rob":"Robotique","tag.team":"Travail d’équipe","tag.sens":"Capteurs",
+    "sk.label":"04 · Boîte à outils","sk.h":"Compétences","sk.legend":"= au cœur de RondeGuard","sk.hw":"Matériel","sk.con":"Connectivité","sk.sw":"Logiciel","sk.ops":"Données &amp; DevOps","sk.tools":"Outils de conception",
+    "ed.label":"05 · Cursus","ed.h":"Formation","ed1.p":"Diplôme d’ingénieur en électronique, option systèmes embarqués","ed2.p":"Licence en informatique industrielle",
+    "lg.ar":"Arabe","lg.fr":"Français","lg.en":"Anglais","lg.native":"Langue maternelle","lg.fluent":"Courant",
+    "ct.label":"06 · Contact","ct.h":"Construisons ensemble des objets connectés.",
+    "ct.p":"Je recherche un poste d’ingénieur systèmes embarqués, IoT ou full-stack. L’e-mail ou LinkedIn reste le moyen le plus rapide de me joindre.",
+    "ct.email":"E-mail","ct.copy":"Copier l’adresse e-mail",
+    "ft.loc":"Tabarka, Tunisie","ft.pdf":"Enregistrer en PDF","ft.top":"Haut de page"
+  };
+  var EN={"doc.title":d.title,"ui.toLight":"Switch to light theme","ui.toDark":"Switch to dark theme","ui.open":"Open menu","ui.close":"Close menu","ui.copied":"Email address copied"};
+  var textNodes=d.querySelectorAll('[data-i18n]'),attrNodes=d.querySelectorAll('[data-i18n-attr]');
+  function eachAttr(n,fn){n.getAttribute('data-i18n-attr').split('|').forEach(function(p){var i=p.indexOf(':');fn(p.slice(0,i),p.slice(i+1))})}
+  textNodes.forEach(function(n){var k=n.getAttribute('data-i18n');if(!(k in EN))EN[k]=n.innerHTML});
+  attrNodes.forEach(function(n){eachAttr(n,function(a,k){if(!(k in EN))EN[k]=n.getAttribute(a)})});
+  var lang='en';
+  function t(k){return lang==='fr'&&FR[k]!=null?FR[k]:EN[k]}
+  function setLang(l,save){
+    lang=l==='fr'?'fr':'en';root.lang=lang;
+    textNodes.forEach(function(n){var v=t(n.getAttribute('data-i18n'));if(v!=null&&n.innerHTML!==v)n.innerHTML=v});
+    attrNodes.forEach(function(n){eachAttr(n,function(a,k){var v=t(k);if(v!=null)n.setAttribute(a,v)})});
+    var cp=$('copy');cp.title=cp.getAttribute('aria-label');
+    d.title=t('doc.title');
+    d.querySelectorAll('[data-lang]').forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-lang')===lang))});
+    themeUI();menuUI();clock();
+    if(save)store('lang',lang);
+  }
+  d.querySelectorAll('[data-lang]').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'),true)})});
+
+  /* ---------- theme ---------- */
+  var themeBtn=$('theme'),metaTheme=d.querySelector('meta[name="theme-color"]');
+  function themeUI(){
+    var light=root.dataset.theme==='light';
+    themeBtn.querySelector('use').setAttribute('href',light?'#i-moon':'#i-sun');
+    themeBtn.setAttribute('aria-label',t(light?'ui.toDark':'ui.toLight'));
+    themeBtn.title=themeBtn.getAttribute('aria-label');
+    metaTheme.setAttribute('content',light?'#F8FAFC':'#0F172A');
+  }
+  themeBtn.addEventListener('click',function(){root.dataset.theme=root.dataset.theme==='light'?'dark':'light';store('theme',root.dataset.theme);themeUI()});
+
+  /* ---------- mobile menu ---------- */
+  var menuBtn=$('menuBtn'),mnav=$('mnav'),nav=$('nav');
+  function isOpen(){return menuBtn.getAttribute('aria-expanded')==='true'}
+  function menuUI(){var o=isOpen();menuBtn.querySelector('use').setAttribute('href',o?'#i-x':'#i-menu');menuBtn.setAttribute('aria-label',t(o?'ui.close':'ui.open'))}
+  function setMenu(o){menuBtn.setAttribute('aria-expanded',String(o));mnav.hidden=!o;nav.classList.toggle('open',o);menuUI()}
+  menuBtn.addEventListener('click',function(){setMenu(!isOpen())});
+  mnav.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false)});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen()){setMenu(false);menuBtn.focus()}});
+  matchMedia('(min-width: 901px)').addEventListener('change',function(m){if(m.matches)setMenu(false)});
+
+  /* ---------- local time in Tabarka ---------- */
+  function clock(){try{$('clock').textContent=new Intl.DateTimeFormat(lang==='fr'?'fr-FR':'en-GB',{timeZone:'Africa/Tunis',hour:'2-digit',minute:'2-digit'}).format(new Date())}catch(e){}}
+  setInterval(clock,30000);
+
+  /* ---------- init language + theme ---------- */
+  var saved=read('lang');
+  setLang(saved||((navigator.language||'').toLowerCase().indexOf('fr')===0?'fr':'en'),false);
+
+  /* ---------- scroll: progress bar + header border ---------- */
+  var bar=$('progress'),ticking=false;
+  function onScroll(){var h=root.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';nav.classList.toggle('scrolled',scrollY>8);ticking=false}
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
+
+  /* ---------- copy email ---------- */
+  var toast=$('toast'),tt;
+  function showToast(msg){toast.innerHTML='<svg class="i" aria-hidden="true"><use href="#i-check"/></svg>'+msg;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},2200)}
+  $('copy').addEventListener('click',function(){
+    var mail='rayenaskri2020@gmail.com';
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(mail).then(function(){showToast(t('ui.copied'))},function(){location.href='mailto:'+mail})}
+    else location.href='mailto:'+mail;
   });
-  var bar=document.getElementById('progress'),ticking=false;
-  function upd(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';ticking=false}
-  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd)}},{passive:true});upd();
-  var els=document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
-  var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px'});
+
+  /* ---------- print / save as PDF ---------- */
+  function revealAll(){d.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in')})}
+  addEventListener('beforeprint',revealAll);
+  $('print').addEventListener('click',function(){revealAll();print()});
+
+  /* ---------- serial monitor boot log ---------- */
+  var lines=d.querySelectorAll('.term .ln');
+  if(reduce)lines.forEach(function(l){l.classList.add('on')});
+  else lines.forEach(function(l,i){setTimeout(function(){l.classList.add('on')},500+i*320)});
+
+  /* ---------- supervisor view: feed follows the SVG clock ---------- */
+  var svg=$('map'),feed=$('feed'),items=feed.querySelectorAll('li[data-k]'),cpn=$('cpn');
+  var DUR=12,MARKS=[0.01,0.16,0.32,0.48,0.64,0.8],shown=-1,timer=null;
+  function render(n){if(n===shown)return;shown=n;items.forEach(function(li,i){li.classList.toggle('on',i<n)});feed.classList.toggle('all',n===MARKS.length);cpn.textContent=n+'/'+MARKS.length}
+  function tick(){var f=(svg.getCurrentTime()%DUR)/DUR,n=0;MARKS.forEach(function(m){if(f>=m)n++});render(n)}
+  var smil=typeof svg.pauseAnimations==='function';
+  if(reduce||!smil){if(smil){svg.pauseAnimations();svg.setCurrentTime(DUR*0.9)}render(MARKS.length)}
+  else{render(1)}
+
+  /* ---------- observers: reveal, scroll spy, pause offscreen animation ---------- */
+  var els=d.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){revealAll();if(smil&&!reduce)timer=setInterval(tick,200);return}
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -6% 0px'});
   els.forEach(function(e){io.observe(e)});
+
+  if(smil&&!reduce){
+    new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting){svg.unpauseAnimations();if(!timer)timer=setInterval(tick,200)}
+      else{svg.pauseAnimations();clearInterval(timer);timer=null}
+    })}).observe(svg);
+  }
+
+  var links=d.querySelectorAll('.menu a, .mnav a');
+  function spy(id){links.forEach(function(a){if(a.getAttribute('href')==='#'+id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}
+  var spyIO=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting)spy(en.target.id)})},{rootMargin:'-45% 0px -50% 0px'});
+  d.querySelectorAll('section[id], .hero').forEach(function(s){spyIO.observe(s)});
 })();
 </script>
 </body>
