@@ -33,14 +33,14 @@
   --bg:#0F172A; --bg-2:#0C1424; --surface:#1B2336; --fg:#F8FAFC; --muted:#94A3B8; --soft:#272F42;
   --border:#334155; --border-soft:#253048;
   --accent:#22C55E; --accent-fg:#0F172A; --accent-soft:rgba(34,197,94,.12); --accent-line:rgba(34,197,94,.45);
-  --glow:0 0 18px rgba(34,197,94,.35); --dots:rgba(148,163,184,.17); --shadow:0 28px 60px -32px rgba(0,0,0,.75);
+  --danger:#F87171; --glow:0 0 18px rgba(34,197,94,.35); --dots:rgba(148,163,184,.17); --shadow:0 28px 60px -32px rgba(0,0,0,.75);
   --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   --sans:"IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
   --r:12px; --r-lg:20px; --ease:cubic-bezier(.2,.7,.2,1); --back:cubic-bezier(.34,1.4,.64,1);
   color-scheme:dark;
 }
 /* Light theme (toggle): accent darkened to keep 4.5:1 on white */
-:root[data-theme="light"]{--bg:#F8FAFC;--bg-2:#F1F5F9;--surface:#FFFFFF;--fg:#0F172A;--muted:#475569;--soft:#EEF2F6;--border:#E2E8F0;--border-soft:#EDF1F6;--accent:#15803D;--accent-fg:#FFFFFF;--accent-soft:rgba(21,128,61,.10);--accent-line:rgba(21,128,61,.4);--glow:none;--dots:rgba(15,23,42,.12);--shadow:0 28px 60px -36px rgba(15,23,42,.35);color-scheme:light}
+:root[data-theme="light"]{--bg:#F8FAFC;--bg-2:#F1F5F9;--surface:#FFFFFF;--fg:#0F172A;--muted:#475569;--soft:#EEF2F6;--border:#E2E8F0;--border-soft:#EDF1F6;--accent:#15803D;--accent-fg:#FFFFFF;--accent-soft:rgba(21,128,61,.10);--accent-line:rgba(21,128,61,.4);--danger:#B91C1C;--glow:none;--dots:rgba(15,23,42,.12);--shadow:0 28px 60px -36px rgba(15,23,42,.35);color-scheme:light}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
@@ -324,6 +324,23 @@ section{padding:112px 0 0}
 .crow .icon-btn{width:54px;height:54px;background:var(--bg)}
 @media (max-width:860px){.contact{grid-template-columns:1fr;padding:30px 22px;margin-top:88px}}
 @media (max-width:400px){.clinks small{display:none}}
+/* contact form (Web3Forms) */
+.cform{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:30px;border-top:1px solid var(--border)}
+.cform-h{grid-column:1/-1}
+.field{display:grid;gap:7px;min-width:0}
+.field.full,.cform-foot{grid-column:1/-1}
+.field input,.field textarea{width:100%;min-height:50px;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--fg);font:400 .95rem/1.5 var(--sans);transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.field textarea{min-height:140px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted);opacity:.75}
+.field input:hover,.field textarea:hover{border-color:var(--muted)}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);border-radius:10px}
+.cform-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.btn[disabled]{opacity:.6;cursor:progress;transform:none}
+.form-status{font:500 .82rem/1.5 var(--mono);color:var(--muted)}
+.form-status.ok{color:var(--accent)}
+.form-status.err{color:var(--danger)}
+.hp{display:none!important}
+@media (max-width:620px){.cform{grid-template-columns:1fr}.cform-foot .btn{width:100%}}
 
 footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:36px 0 48px}
 .foot-actions{display:flex;gap:8px;flex-wrap:wrap}
@@ -362,7 +379,7 @@ footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:w
   :root,:root[data-theme="light"]{--bg:#fff;--bg-2:#fff;--surface:#fff;--fg:#0F172A;--muted:#334155;--soft:#F1F5F9;--border:#CBD5E1;--border-soft:#E2E8F0;--accent:#15803D;--accent-fg:#fff;--accent-soft:transparent;--accent-line:#15803D;--glow:none;--dots:transparent;--shadow:none;color-scheme:light}
   @page{margin:14mm}
   body{font-size:10.5pt}
-  header.nav,.progress,.skip,.term,.corner,.console,.cta,.toast,.foot-actions,.hero::after,.link::after,.contact::before{display:none!important}
+  header.nav,.progress,.skip,.term,.corner,.console,.cta,.toast,.foot-actions,.hero::after,.link::after,.contact::before,.cform{display:none!important}
   .js .reveal,.js .stagger>.reveal,.js .hero-copy>*{opacity:1!important;transform:none!important;animation:none!important}
   .hero-in{grid-template-columns:1fr 150px;gap:24px;padding:0 0 18px}
   .visual{width:150px}
@@ -715,7 +732,7 @@ footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:w
         <div>
           <span class="label accent" data-i18n="ct.label">06 · Contact</span>
           <h2 data-i18n="ct.h">Let's build something connected.</h2>
-          <p data-i18n="ct.p">Looking for a role as an Embedded Systems, IoT or Full-Stack engineer. Email or LinkedIn is the fastest way to reach me.</p>
+          <p data-i18n="ct.p">Looking for a role as an Embedded Systems, IoT or Full-Stack engineer. Send me a message below, or reach me by email or LinkedIn.</p>
         </div>
         <div class="clinks">
           <div class="crow">
@@ -725,6 +742,28 @@ footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:w
           <a href="https://www.linkedin.com/in/rayen-askri/"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn<small>rayen-askri</small></a>
           <a href="https://github.com/rayenaskri"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg>GitHub<small>rayenaskri</small></a>
         </div>
+        <form class="cform" id="cform" action="https://api.web3forms.com/submit" method="POST" aria-labelledby="cf-h">
+          <span class="label accent cform-h" id="cf-h" data-i18n="cf.h">// Send a message</span>
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="from_name" value="rayenaskri.github.io">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="field">
+            <label class="label" for="cf-name" data-i18n="cf.name">Name</label>
+            <input id="cf-name" name="name" type="text" required maxlength="100" autocomplete="name" placeholder="Jane Doe" data-i18n-attr="placeholder:cf.nameP">
+          </div>
+          <div class="field">
+            <label class="label" for="cf-email" data-i18n="cf.email">Email</label>
+            <input id="cf-email" name="email" type="email" required maxlength="150" autocomplete="email" placeholder="you@company.com" data-i18n-attr="placeholder:cf.emailP">
+          </div>
+          <div class="field full">
+            <label class="label" for="cf-msg" data-i18n="cf.msg">Message</label>
+            <textarea id="cf-msg" name="message" required maxlength="5000" placeholder="Tell me about the role or the project…" data-i18n-attr="placeholder:cf.msgP"></textarea>
+          </div>
+          <div class="cform-foot">
+            <button class="btn primary" type="submit"><span data-i18n="cf.send">Send message</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <span class="form-status" id="cf-status" role="status" aria-live="polite"></span>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -801,11 +840,14 @@ footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:w
     "ed.label":"05 · Cursus","ed.h":"Formation","ed1.p":"Diplôme d’ingénieur en électronique, option systèmes embarqués","ed2.p":"Licence en informatique industrielle",
     "lg.ar":"Arabe","lg.fr":"Français","lg.en":"Anglais","lg.native":"Langue maternelle","lg.fluent":"Courant",
     "ct.label":"06 · Contact","ct.h":"Construisons ensemble des objets connectés.",
-    "ct.p":"Je recherche un poste d’ingénieur systèmes embarqués, IoT ou full-stack. L’e-mail ou LinkedIn reste le moyen le plus rapide de me joindre.",
+    "ct.p":"Je recherche un poste d’ingénieur systèmes embarqués, IoT ou full-stack. Envoyez-moi un message ci-dessous, ou contactez-moi par e-mail ou LinkedIn.",
     "ct.email":"E-mail","ct.copy":"Copier l’adresse e-mail",
+    "cf.h":"// Envoyer un message","cf.name":"Nom","cf.email":"E-mail","cf.msg":"Message","cf.send":"Envoyer le message",
+    "cf.nameP":"Prénom Nom","cf.emailP":"vous@entreprise.com","cf.msgP":"Parlez-moi du poste ou du projet…",
+    "cf.sending":"Envoi en cours…","cf.ok":"Merci ! Votre message a bien été envoyé, je vous réponds rapidement.","cf.err":"L’envoi a échoué. Écrivez-moi directement à rayenaskri2020@gmail.com.",
     "ft.loc":"El Ghazala City, Tunisie","ft.pdf":"Enregistrer en PDF","ft.top":"Haut de page"
   };
-  var EN={"doc.title":d.title,"ui.toLight":"Switch to light theme","ui.toDark":"Switch to dark theme","ui.open":"Open menu","ui.close":"Close menu","ui.copied":"Email address copied"};
+  var EN={"doc.title":d.title,"ui.toLight":"Switch to light theme","ui.toDark":"Switch to dark theme","ui.open":"Open menu","ui.close":"Close menu","ui.copied":"Email address copied","cf.sending":"Sending…","cf.ok":"Thanks! Your message has been sent. I’ll get back to you soon.","cf.err":"Sending failed. Please email me directly at rayenaskri2020@gmail.com."};
   var textNodes=d.querySelectorAll('[data-i18n]'),attrNodes=d.querySelectorAll('[data-i18n-attr]');
   function eachAttr(n,fn){n.getAttribute('data-i18n-attr').split('|').forEach(function(p){var i=p.indexOf(':');fn(p.slice(0,i),p.slice(i+1))})}
   textNodes.forEach(function(n){var k=n.getAttribute('data-i18n');if(!(k in EN))EN[k]=n.innerHTML});
@@ -866,6 +908,23 @@ footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:w
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(mail).then(function(){showToast(t('ui.copied'))},function(){location.href='mailto:'+mail})}
     else location.href='mailto:'+mail;
   });
+
+  /* ---------- contact form → Web3Forms (works without JS too: plain POST) ---------- */
+  var cform=$('cform'),cfStatus=$('cf-status'),cfBtn=cform.querySelector('[type=submit]'),cfKey='';
+  function cfSay(k,cls){cfKey=k;cfStatus.textContent=k?t(k):'';cfStatus.className='form-status'+(cls?' '+cls:'')}
+  cform.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(cform.botcheck.checked)return;
+    var data={};new FormData(cform).forEach(function(v,k){data[k]=v});
+    data.subject='Portfolio · '+(data.name||'').slice(0,60);
+    cfBtn.disabled=true;cfSay('cf.sending');
+    fetch(cform.action,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json()})
+      .then(function(j){if(j&&j.success){cform.reset();cfSay('cf.ok','ok')}else cfSay('cf.err','err')})
+      .catch(function(){cfSay('cf.err','err')})
+      .then(function(){cfBtn.disabled=false});
+  });
+  d.querySelectorAll('[data-lang]').forEach(function(b){b.addEventListener('click',function(){if(cfKey)cfStatus.textContent=t(cfKey)})});
 
   /* ---------- print / save as PDF ---------- */
   function revealAll(){d.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in')})}
